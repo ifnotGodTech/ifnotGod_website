@@ -7,7 +7,9 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primary: 'var(--primary)',
-        off_white:'var(--off-white)',
+        "off-white": 'var(--off-white)',
+        "off-black": 'var(--off-black)',
+        gray: 'var(--gray)'
       },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],

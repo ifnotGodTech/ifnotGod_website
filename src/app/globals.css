@@ -4,17 +4,24 @@
   --background: #ffffff;
   --foreground: #181818;
   --primary: #CA5202;
-  --off-white:"#FAFAFA"
+  --off-white:#FAFAFA;
+  --off-black:#464646;
+  --gray:#4E4F52;
 }
 
 @theme inline{
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary:var(--primary);
+  --color-off-white:var(--off-white);
+  --color-off-black:var(--off-black);
+  --color-gray:var(--gray);
   --font-inter: var(--font-inter);
   --font-instrument-serif: var(--font-instrument-serif);
 }
-
+.font-instrument-serif{
+  font-family: var(--font-instrument-serif), serif;
+}
 @layer components{
   .button-primary{
     @apply bg-primary lg:py-3 py-2 rounded-md text-background lg:px-4 px-3 capitalize cursor-pointer;
@@ -22,5 +29,12 @@
   .button-secondary{
     @apply border-1 border-primary lg:py-3 py-2 rounded-md text-primary lg:px-4 px-3 capitalize cursor-pointer;
   }
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 

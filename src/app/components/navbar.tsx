@@ -16,7 +16,7 @@ const Navbar = () => {
         className="w-24"
         alt="logo"
       />
-      <div className="flex justify-center items-center gap-4">
+      <div className="lg:flex justify-center items-center gap-4 hidden">
         <div className="flex items-center gap-1 cursor-pointer">
           <p>Services</p>
           <RiArrowDropDownFill />
@@ -32,7 +32,7 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <button className="button-primary">Book a free call</button>
+      <button className="button-primary hidden lg:block">Book a free call</button>
     </nav>
   );
 };
