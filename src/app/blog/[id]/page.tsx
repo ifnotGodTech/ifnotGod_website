@@ -10,7 +10,7 @@ const Page = () => {
   const params = useParams();
   const id = Number(params?.id);
   const router = useRouter();
-  const [fullBlogPost, setFullBlogPost] = useState<blogProps[]>(blogPosts);
+  const [fullBlogPost] = useState<blogProps[]>(blogPosts);
 
   const findBlog = fullBlogPost.find((item) => item.id === id);
   if (!findBlog) {
