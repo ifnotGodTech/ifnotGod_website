@@ -52,7 +52,7 @@ const Page = () => {
         </h1>
       </div>
       <div className="lg:p-12 p-6">
-        <div className="flex item-center justify-center gap-3 w-full">
+        <div className="flex item-center lg:justify-center justify-normal gap-3 w-full flex-wrap lg:flex-nowrap">
           {typeContent.map((item, idx) => (
             <p
               className={`${
@@ -67,7 +67,7 @@ const Page = () => {
             </p>
           ))}
         </div>
-        <div className="lg:grid lg:grid-cols-3 flex justify-between overflow-x-auto snap-mandatory scrollbar-hide place-items-center items-start pt-6 gap-6">
+        <div className="grid lg:grid-cols-3 grid-cols-1 pt-6 lg:gap-6 gap-12">
           {blogState.map((item) => (
             <div
               className="flex flex-col gap-2 items-start max-w-[350px] lg:max-w-96"
