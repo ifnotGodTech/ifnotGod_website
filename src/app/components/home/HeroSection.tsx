@@ -1,3 +1,6 @@
+"use client";
+import Link from "next/link";
+
 const HeroSection = () => {
   return (
     <div className="bg-[#FAFAFA] lg:p-20 p-4 rounded-lg lg:m-12 m-5">
@@ -11,7 +14,9 @@ const HeroSection = () => {
           creating seamless, user-centered solutions that make an impact.
         </p>
         <div className="flex gap-3">
-          <button className="button-secondary">Contact Us</button>
+          <button className="button-secondary">
+            <Link href="/contact-us">Contact Us</Link>
+          </button>
           <button className="button-primary">Book A Free Call</button>
         </div>
       </div>

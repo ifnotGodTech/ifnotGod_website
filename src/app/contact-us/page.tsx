@@ -1,5 +1,4 @@
 import React from "react";
-import Cardbuild from "../components/reusuables/cardbuild";
 
 const page = () => {
   const typeContent = [

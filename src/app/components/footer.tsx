@@ -27,13 +27,13 @@ const Footer = () => {
           <div>
             <h4 className="text-2xl font-instrument-serif lg:pb-6 pb-3">Company</h4>
             <ul className="flex flex-col gap-2 lg:text-sm text-xs text-gray-black">
-              <Link href="" className="cursor-pointer">
+              <Link href="/about-us" className="cursor-pointer">
                 About Us
               </Link>
               <Link href="" className="cursor-pointer">
                 Services
               </Link>
-              <Link href="" className="cursor-pointer">
+              <Link href="/contact-us" className="cursor-pointer">
                 Contact Us
               </Link>
             </ul>
@@ -41,16 +41,16 @@ const Footer = () => {
           <div>
             <h4 className="text-2xl font-instrument-serif lg:pb-6 pb-3">Services</h4>
             <ul className="flex flex-col gap-2 lg:text-sm text-xs text-gray-black">
-              <Link href="" className="cursor-pointer ">
+              <Link href="/services/uiux-design" className="cursor-pointer ">
                 UI/UX Design
               </Link>
-              <Link href="" className="cursor-pointer ">
+              <Link href="/services/software-development" className="cursor-pointer ">
                 Software Development
               </Link>
-              <Link href="" className="cursor-pointer ">
+              <Link href="/services/quality-assurance" className="cursor-pointer ">
                 Quality Assurance
               </Link>
-              <Link href="" className="cursor-pointer ">
+              <Link href="/services/IT-consulting" className="cursor-pointer ">
                 IT Consulting
               </Link>
             </ul>

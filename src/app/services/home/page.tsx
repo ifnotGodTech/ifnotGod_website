@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import HeroSection from "../../components/home/HeroSection";
 import Marquee from "../../components/home/Marquee";
@@ -5,8 +6,10 @@ import { CgArrowRight } from "react-icons/cg";
 import Testimony from "../../components/home/Testimony";
 import Accordion from "../../components/home/Accordion";
 import Cardbuild from "@/app/components/reusuables/cardbuild";
+import { useRouter } from "next/navigation";
 
 const Homepage = () => {
+  const route = useRouter();
   const servicescontent = [
     {
       id: 1,
@@ -29,16 +32,14 @@ const Homepage = () => {
       name: "Quality Assurance",
       content:
         "Quality is never an afterthought. Our QA team conducts comprehensive testing including functional, performance, and security testing. We catch bugs before your users do, ensuring a smooth launch and optimal user experience across all platforms and devices.",
-      image:
-        "/images/standard-quality-control-concept-m (1).jpg",
+      image: "/images/standard-quality-control-concept-m (1).jpg",
     },
     {
       id: 4,
       name: "IT Consulting",
       content:
         "We help you make smarter tech decisions. From choosing the right tools and architecture to planning your product roadmap, we provide strategic guidance to build efficiently and scale with confidence.",
-      image:
-        "/images/group-multinational-busy-people-working-office (1).jpg",
+      image: "/images/group-multinational-busy-people-working-office (1).jpg",
     },
   ];
   const whycontent = [
@@ -75,7 +76,10 @@ const Homepage = () => {
             <h2 className="lg:text-4xl text-2xl font-instrument-serif lg:w-[700px]">
               Turn your ideas into impactful digital experiences like these
             </h2>
-            <button className="w-fit button-primary flex items-center justify-normal gap-3 text-sm ">
+            <button
+              className="w-fit button-primary flex items-center justify-normal gap-3 text-sm "
+              onClick={() => route.push("/contact-us")}
+            >
               Start your Project{" "}
               <span>
                 <CgArrowRight />
@@ -188,7 +192,10 @@ const Homepage = () => {
           </div>
           <div className="lg:grid lg:grid-cols-3 flex justify-between overflow-x-auto snap-mandatory scrollbar-hide place-items-center pt-6 gap-3">
             {[...Array(3)].map((_, i) => (
-              <div className="flex flex-col gap-4 items-start max-w-[350px] lg:max-w-96" key={i}>
+              <div
+                className="flex flex-col gap-4 items-start max-w-[350px] lg:max-w-96"
+                key={i}
+              >
                 <img
                   src="/images/ProgrammeratWork.png"
                   alt="programmer at work"
@@ -218,7 +225,7 @@ const Homepage = () => {
         {/* <-------------------------------END OF INSIGHTS AND IDEAS SECTIOn --------------------------> */}
         <Accordion />
         {/* <-----------------------------------CONTACT BOX ------------------------------> */}
-        <Cardbuild/>
+        <Cardbuild />
       </div>
     </div>
   );
