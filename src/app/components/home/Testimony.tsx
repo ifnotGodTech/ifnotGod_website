@@ -78,18 +78,19 @@ const Testimony = () => {
   }, []);
 
   return (
-    <div className="bg-background text-foreground px-24">
+    <div className="bg-background text-foreground p-6 lg:p-0">
       <h2 className="text-4xl font-instrument-serif text-center py-12">
         See what our clients say about us and join our success stories!
       </h2>
 
       <div
         ref={containerRef}
-        className="overflow-x-hidden flex w-full gap-5 snap-x snap-mandatory scrollbar-hide py-6 px-6"
+        className="overflow-x-auto flex w-full gap-5 snap-x snap-mandatory scrollbar-hide py-6 px-6 cursor-default select-none"
+        style={{ scrollBehavior: "smooth" }}
       >
         {testimonycontent.map((item, index) => (
           <div
-            className="bg-background rounded-2xl shadow-2xl p-4 w-full  min-w-[500px] snap-center"
+            className="bg-background rounded-2xl lg:shadow-2xl shadow-lg p-4 lg:w-full min-w-[300px] lg:min-w-[500px] snap-center"
             key={index}
           >
             <div className="flex justify-normal items-center gap-4">
@@ -104,7 +105,7 @@ const Testimony = () => {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-4 pt-5">
+      <div className="hidden lg:flex justify-center items-center gap-4 pt-5">
         <GrFormPrevious
           className="w-12 h-12 rounded-full border-2 border-black cursor-pointer"
           onClick={prev}

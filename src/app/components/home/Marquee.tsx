@@ -2,15 +2,15 @@ import React from "react";
 
 const Marquee = () => {
   return (
-    <div className="p-1 flex items-center justify-between w-full overflow-x-hidden gap-5">
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
-      <img className="w-32" src="/images/Travel_Mate_Logo.png" alt="" />
+    <div className="p-1 flex items-center justify-between w-full overflow-hidden whitespace-nowrap gap-8">
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
+      <img className="w-64 overflow-hidden animate-marquee whitespace-nowrap" src="/images/Travel_Mate_Logo.png" alt="" />
     </div>
   );
 };
