@@ -7,10 +7,12 @@ import Footer from "./components/footer";
 const instrument_Serif = Instrument_Serif({
   weight: "400",
   variable: "--font-instrument-serif",
+  subsets: ["latin"]
 });
 const inter = Inter({
   weight: "400",
   variable: "--font-inter",
+  subsets:["latin"]
 });
 
 export const metadata: Metadata = {

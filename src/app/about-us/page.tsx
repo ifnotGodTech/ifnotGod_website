@@ -61,17 +61,17 @@ const page = () => {
             marked the start of our full-scale product delivery journey.
           </p>
           <p className="pt-4">
-            We're here to help your company achieve its goals faster. While you
+            We&apos;re here to help your company achieve its goals faster. While you
             focus on strategy and growth, we handle the technical heavy
             lifting—turning time zone differences into your advantage.{" "}
           </p>
           <p className="pt-4">
-            Today, we're a team of 12 skilled professionals serving clients
-            across Africa, Europe, and North America. We've mastered seamless
+            Today, we&apos;re a team of 12 skilled professionals serving clients
+            across Africa, Europe, and North America. We&apos;ve mastered seamless
             remote collaboration, ensuring consistent progress on your projects.
           </p>{" "}
           <p className="pt-4">
-            We don't just build software—we build trust through consistent
+            We don&apos;t just build software—we build trust through consistent
             delivery, clear communication, and results that exceed expectations.
           </p>
         </div>
@@ -82,7 +82,7 @@ const page = () => {
         <p className="lg:text-base text-sm">
           To deliver exceptional software solutions that transform businesses
           and serve people - recognizing that our talents, opportunities, and
-          success come from God. We believe that if not for God's grace and
+          success come from God. We believe that if not for God&apos;s grace and
           provision, none of our achievements would be possible. Every project
           we undertake is an opportunity to steward our gifts faithfully,
           crafting software that not only meets your business objectives but

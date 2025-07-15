@@ -1,7 +1,6 @@
 import React from "react";
 import HeroSection from "../../components/home/HeroSection";
 import Marquee from "../../components/home/Marquee";
-import { MdArrowRight } from "react-icons/md";
 import { CgArrowRight } from "react-icons/cg";
 import Testimony from "../../components/home/Testimony";
 import Accordion from "../../components/home/Accordion";

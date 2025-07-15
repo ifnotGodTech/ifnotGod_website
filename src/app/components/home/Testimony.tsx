@@ -75,7 +75,7 @@ const Testimony = () => {
 
   useEffect(() => {
     scrollToIndex(activeIndex);
-  }, []);
+  }, [activeIndex]);
 
   return (
     <div className="bg-background text-foreground p-6 lg:p-0">

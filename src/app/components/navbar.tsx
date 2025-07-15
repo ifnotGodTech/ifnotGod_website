@@ -44,7 +44,8 @@ const Navbar = () => {
   const findname =
     servicesItems.find((item) => item.href === pathname)?.name ||
     navItems.find((item) => item.href === pathname)?.label;
-  console.log(findname);
+  const isServicesActive = servicesItems.some((item) => item.href === pathname);
+  const isDynamicBlog = pathname.startsWith("/blog/") && pathname !== "/blog";
 
   return (
     <>
@@ -58,12 +59,19 @@ const Navbar = () => {
         <div className="lg:flex justify-center items-center gap-4">
           <div>
             <div
-              className="flex items-center gap-1 cursor-pointer data-[active]:text-primary"
+              className={`flex items-center gap-1 cursor-pointer ${
+                isServicesActive ? "text-primary" : ""
+              } hover:text-primary transition-colors`}
               onClick={() => setopenServices(!openServices)}
             >
-              <p className=" hover:text-primary transition-colors">Services</p>
-              <RiArrowDropDownFill className="hoverf:fill-primary" />
+              <p>Services</p>
+              <RiArrowDropDownFill
+                className={`hover:fill-primary ${
+                  openServices ? `rotate-180` : ``
+                }`}
+              />
             </div>
+
             {openServices && (
               <div className="bg-background text-gray py-4 px-8 z-20 flex justify-normal items-center w-fit absolute top-16 left-2  shadow-lg overflow-x-hidden">
                 {servicesItems.map((item, idx) => (
@@ -89,7 +97,9 @@ const Navbar = () => {
             <Link
               key={item.label}
               href={item.href}
-              className="capitalize cursor-pointer data-[active]:text-primary hover:text-primary transition-colors"
+              className={`capitalize cursor-pointer ${
+                item.href === pathname ? "text-primary" : "text-gray-600"
+              } hover:text-primary transition-colors`}
             >
               {item.label}
             </Link>
@@ -115,7 +125,9 @@ const Navbar = () => {
           <div>
             <div className="flex flex-col justify-normal items-start pt-6">
               <div
-                className="flex items-center gap-1 cursor-pointer data-[active]:text-primary  px-5 pt-7 pb-4 border-b-1 border-t-gray w-full"
+                className={`flex items-center gap-1 cursor-pointer ${
+                  isServicesActive ? "text-primary" : ""
+                } px-5 pt-7 pb-4 border-b-1 border-t-gray w-full`}
                 onClick={() => setopenServices(!openServices)}
               >
                 <p className=" hover:text-primary transition-colors">
@@ -151,7 +163,9 @@ const Navbar = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="w-full capitalize cursor-pointer data-[active]:text-primary hover:text-primary transition-colors border-b-1 border-b-gray px-5 pt-7 pb-4"
+                  className={`w-full capitalize cursor-pointer ${
+                    item.href === pathname ? "text-primary" : "text-gray-600"
+                  } hover:text-primary transition-colors border-b-1 border-b-gray px-5 pt-7 pb-4`}
                 >
                   {item.label}
                 </Link>
@@ -165,7 +179,7 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-      {pathname !== "/" && (
+      {!isDynamicBlog && pathname !== "/" && (
         <p className="lg:px-12 lg:p-4  p-6 ">
           <Link className="text-gray" href="/">
             Home/
