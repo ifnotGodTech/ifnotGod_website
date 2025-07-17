@@ -7,7 +7,7 @@ import Testimony from "../../components/home/Testimony";
 import Accordion from "../../components/home/Accordion";
 import Cardbuild from "@/app/components/reusuables/cardbuild";
 import { useRouter } from "next/navigation";
-
+import * as motion from "motion/react-client";
 const Homepage = () => {
   const route = useRouter();
   const servicescontent = [
