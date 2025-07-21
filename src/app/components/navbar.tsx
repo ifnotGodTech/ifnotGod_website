@@ -4,6 +4,8 @@ import Link from "next/link";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import { Menu } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import HoverButton from "./buttonHover";
+
 const Navbar = () => {
   const [openServices, setopenServices] = useState(false);
   const [openNav, setOpenNav] = useState(false);
@@ -52,7 +54,7 @@ const Navbar = () => {
       <nav className="relative p-4 bg-background lg:flex justify-between items-center w-full px-12 hidden">
         <img
           src="/images/MAIN-IFNOTGODTECH-LOGO.png"
-          className="w-24"
+          className="w-24 cursor-pointer"
           alt="logo"
           onClick={() => route.push("/")}
         />
@@ -105,9 +107,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <button className="button-primary hidden lg:block">
-          Book a free call
-        </button>
+        <HoverButton href="/contact-us" text="Book a free call" className="button-primary"/>
       </nav>
 
       {/* <---------------------------MOBILE NAV -----------------------------> */}
@@ -172,9 +172,7 @@ const Navbar = () => {
               ))}
             </div>
             <div className="px-4">
-              <button className="button-primary mt-5 p-4 w-full ">
-                Book a free call
-              </button>
+              <HoverButton href="/contact-us" text="Book a free call" className="button-primary"/>
             </div>
           </div>
         )}

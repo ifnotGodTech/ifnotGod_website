@@ -1,3 +1,4 @@
+import HoverButton from "@/app/components/buttonHover";
 import AccordionSection from "@/app/components/it-consulting/Accordion";
 import { CheckCircle2Icon } from "lucide-react";
 import React from "react";
@@ -71,28 +72,34 @@ const page = () => {
         }}
       >
         <p className="lg:text-3xl text-2xl font-instrument-serif lg:max-w-[550px]">
-          We optimize your technology infrastructure, guide strategic decisions, and accelerate digital transformation through expert consulting that aligns IT with your business goals.
+          We optimize your technology infrastructure, guide strategic decisions,
+          and accelerate digital transformation through expert consulting that
+          aligns IT with your business goals.
         </p>
-        <button className="w-fit button-primary py-3">Contact us</button>
+        <HoverButton
+          href="/contact-us"
+          text="Contact us"
+          className="button-primary w-fit"
+        />
       </div>
       {/* <-------------------SERVICES WE OFFER-------------------------> */}
-      <div className=" lg:py-12 py-6 lg:px-12 px-3">
-        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4">
+      <div className=" ">
+        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4 lg:py-12 py-6 lg:px-12 px-3">
           <h1 className="text-4xl font-instrument-serif capitalize">
             Services We Offer
           </h1>
-          <button className="hidden w-fit button-primary lg:flex items-center justify-normal gap-3 text-sm ">
-            Start your Project
-            <span>
-              <CgArrowRight />
-            </span>
-          </button>
+          <HoverButton
+            href="/contact-us"
+            text="Start your project"
+            className="button-primary"
+            icon={<CgArrowRight />}
+          />
         </div>
-        <div className="grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6">
+        <div className=" border-t-1 border-t-gray grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6">
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="flex lg:flex-row flex-col justify-center items-center w-full gap-12"
+              className="sticky top-0 z-30 bg-white flex lg:flex-row flex-col justify-center items-center w-full gap-12 lg:py-6 py-3"
               key={idx}
             >
               <div

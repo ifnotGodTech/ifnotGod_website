@@ -39,7 +39,7 @@ const Carasouel = () => {
     },
   ];
   return (
-    <div className=" lg:py-12  p-6">
+    <div className="lg:py-12 p-6">
       <h3 className="text-4xl font-instrument-serif py-4">
         Our Quality Assurance Process
       </h3>

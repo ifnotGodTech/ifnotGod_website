@@ -3,6 +3,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
+import HoverButton from "./buttonHover";
 const Footer = () => {
   return (
     <div className="bg-near-black p-6 lg:p-12 text-background">
@@ -88,7 +89,7 @@ const Footer = () => {
           <Mail className="absolute left-3 top-2" stroke="#4E4F52" />
         </div>
 
-        <button className="button-primary ">Subscribe now</button>
+         <HoverButton href="/contact-us" text="Subscribe now"/>
       </div>
       <div className="py-12 flex lg:flex-row flex-col justify-between lg:items-center gap-3 lg:gap-0">
         <p className="text-xs order-2 lg:order-1 text-gray-black">

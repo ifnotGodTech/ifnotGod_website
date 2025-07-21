@@ -1,6 +1,7 @@
-'use client'
+"use client";
 import React from "react";
 import Link from "next/link";
+import HoverButton from "../buttonHover";
 
 const Cardbuild = () => {
   return (
@@ -15,13 +16,20 @@ const Cardbuild = () => {
           Let&apos;s build something amazing together
         </h3>
         <p className="lg:text-sm text-xs">
-          Got a project idea? We&apos;d love to hear about it! Book a Call with Us
+          Got a project idea? We&apos;d love to hear about it! Book a Call with
+          Us
         </p>
         <div className="flex gap-3 lg:mt-6">
-          <button className="button-secondary text-nowrap"><Link href="/contact-us">Contact Us</Link></button>
-          <button className="button-primary text-nowrap">
-            Book A Free Call
-          </button>
+          <HoverButton
+            href="/contact-us"
+            text="Contact us"
+            className="button-secondary"
+          />
+          <HoverButton
+            href="/contact-us"
+            text="Book a free call"
+            className="button-primary"
+          />
         </div>
       </div>
     </div>

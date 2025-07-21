@@ -4,6 +4,8 @@ import Cardbuild from "../components/reusuables/cardbuild";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 import { blogPosts } from "./data";
+import { motion } from "framer-motion";
+import { CgArrowRight } from "react-icons/cg";
 export type blogProps = {
   id: number;
   image: string;
@@ -67,18 +69,37 @@ const Page = () => {
             </p>
           ))}
         </div>
-        <div className="grid lg:grid-cols-3 grid-cols-1 pt-6 lg:gap-6 gap-12">
+        <div className="grid lg:grid-cols-3 grid-cols-1 pt-6 lg:gap-6 gap-12 ">
           {blogState.map((item) => (
-            <div
-              className="flex flex-col gap-2 items-start max-w-[350px] lg:max-w-96"
+            <motion.div
+              whileHover="hover"
+              initial="rest"
+              animate="rest"
+              className="flex flex-col gap-2 items-start max-w-[350px] lg:max-w-96 "
               key={item.id}
             >
-              <img
-                src={item.image}
-                alt="programmer at work"
-                className="rounded-2xl lg:w-96 min-w-[350px] cursor-pointer hover:opacity-70"
-                onClick={() => route.push(`/blog/${item.id}`)}
-              />
+              <div className="overflow-hidden rounded-2xl relative">
+                <motion.img
+                  initial={{ scale: 1 }}
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  src={item.image}
+                  alt="programmer at work"
+                  className="rounded-2xl lg:w-96 min-w-[350px] cursor-pointer "
+                  onClick={() => route.push(`/blog/${item.id}`)}
+                />
+                <motion.div
+                  variants={{
+                    rest: { opacity: 0, y: -40, scale: 0 },
+                    hover: { opacity: 1, y: 0, scale: 1.2 },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="w-8 h-8 bg-primary rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer z-10 hover:bg-white hover:text-black"
+                >
+                  <CgArrowRight className="text-white hover:text-black" />
+                </motion.div>
+              </div>
+
               <div className="flex justify-between items-center max-w-84 w-full text-sm">
                 <button className="rounded-xl p-2 border-[1px] border-foreground text-xs lg:text-sm">
                   {item.category}
@@ -93,7 +114,7 @@ const Page = () => {
                 {item.title}
               </h3>
               <p className="text-gray lg:text-base text-sm">{item.preview}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="hidden lg:flex justify-center items-center gap-4 pt-8">

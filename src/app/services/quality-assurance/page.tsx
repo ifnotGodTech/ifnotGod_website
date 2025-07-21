@@ -1,3 +1,4 @@
+import HoverButton from "@/app/components/buttonHover";
 import AccordionSection from "@/app/components/quality-assurance/Accordion";
 import Carasouel from "@/app/components/quality-assurance/Carousel";
 import { CheckCircle2Icon } from "lucide-react";
@@ -85,26 +86,30 @@ const page = () => {
           costly post-launch issues and delivers flawless user experiences
           through comprehensive testing.
         </p>
-        <button className="w-fit button-primary py-3">Contact us</button>
+        <HoverButton
+          href="/contact-us"
+          text="Contact us"
+          className="button-primary w-fit"
+        />
       </div>
       {/* <-------------------SERVICES WE OFFER-------------------------> */}
-      <div className=" lg:py-12 py-6 lg:px-12 px-3">
-        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4">
+      <div className="">
+        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4  lg:py-12 py-6 lg:px-12 px-3">
           <h1 className="text-4xl font-instrument-serif capitalize">
             Services We Offer
           </h1>
-          <button className="hidden w-fit button-primary lg:flex items-center justify-normal gap-3 text-sm ">
-            Start your Project
-            <span>
-              <CgArrowRight />
-            </span>
-          </button>
+          <HoverButton
+            href="/contact-us"
+            text="Start your project"
+            className="button-primary"
+            icon={<CgArrowRight />}
+          />
         </div>
-        <div className="grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6">
+        <div className=" lg:py-12 py-6 grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6 border-t-1 border-t-gray ">
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="flex lg:flex-row flex-col justify-center items-center w-full gap-12"
+              className="sticky  bg-white top-0 z-30 flex lg:flex-row flex-col justify-center items-center w-full gap-12 h-[200px]"
               key={idx}
             >
               <div
@@ -123,7 +128,7 @@ const page = () => {
       </div>
       <Carasouel />
       {/* <----------------------BENEFITS OF USING SERVOICE SECTION----------------------> */}
-      <div className="bg-off-white lg:p-12 p-6">
+      <div className="bg-off-white lg:p-12 p-6 ">
         <h2 className="text-4xl pb-12 text-center">
           Benefits of using our Quality Assurance service
         </h2>

@@ -1,15 +1,14 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import HeroSection from "../../components/home/HeroSection";
 import Marquee from "../../components/home/Marquee";
 import { CgArrowRight } from "react-icons/cg";
 import Testimony from "../../components/home/Testimony";
 import Accordion from "../../components/home/Accordion";
 import Cardbuild from "@/app/components/reusuables/cardbuild";
-import { useRouter } from "next/navigation";
-import * as motion from "motion/react-client";
+import HoverButton from "@/app/components/buttonHover";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 const Homepage = () => {
-  const route = useRouter();
   const servicescontent = [
     {
       id: 1,
@@ -76,26 +75,46 @@ const Homepage = () => {
             <h2 className="lg:text-4xl text-2xl font-instrument-serif lg:w-[700px]">
               Turn your ideas into impactful digital experiences like these
             </h2>
-            <button
-              className="w-fit button-primary flex items-center justify-normal gap-3 text-sm "
-              onClick={() => route.push("/contact-us")}
-            >
-              Start your Project{" "}
-              <span>
-                <CgArrowRight />
-              </span>
-            </button>
+            <HoverButton
+              href="/contact-us"
+              text="Start your project"
+              icon={<CgArrowRight />}
+              className="button-primary border-transparent hover:border-transparent hover:bg-foreground"
+            />
           </div>
           <div className="flex lg:flex-row flex-col justify-center lg:gap-32 lg:items-center  lg:px-0">
             {[...Array(2)].map((_, idx) => (
               <div className="pt-8" key={idx}>
-                <div className="bg-background rounded-xl p-3 lg:w-[400px] h-[250px] w-full ">
-                  <img
+                <motion.div
+                  className="bg-background rounded-xl p-3 lg:w-[400px] h-[250px] w-full text-white relative overflow-hidden"
+                  whileHover="hover"
+                  initial="rest"
+                  animate="rest"
+                >
+                  {/* Image */}
+                  <motion.img
+                    variants={{
+                      rest: { scale: 1 },
+                      hover: { scale: 1.1 },
+                    }}
+                    transition={{ duration: 0.4, type: "spring" }}
                     src="/images/itestify-app.png"
                     className="lg:w-72 w-64 m-auto"
-                    alt=""
+                    alt="Project Preview"
                   />
-                </div>
+
+                  {/* Arrow Icon */}
+                  <motion.div
+                    variants={{
+                      rest: { opacity: 0, y: -40, scale: 0 },
+                      hover: { opacity: 1, y: 0, scale: 1.2 },
+                    }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="w-8 h-8 bg-primary rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer z-10"
+                  >
+                    <CgArrowRight className="text-white" />
+                  </motion.div>
+                </motion.div>
                 <div className="text-background">
                   <h3 className="font-instrument-serif text-xl py-3">
                     iTestified
@@ -121,37 +140,39 @@ const Homepage = () => {
         {/* <------------------------------ END OF IDEA PORTFOLIO SECTION------------------------------------> */}
 
         {/* <---------------------------------SERVICES SECTION WITH IMAGES -------------------------------------> */}
-        <div className="lg:p-12 p-6 bg-background">
-          <h1 className="lg:text-6xl capitalize text-4xl font-instrument-serif text-center pb-12">
+        <div className=" bg-background">
+          <h1 className="lg:text-6xl capitalize text-4xl font-instrument-serif text-center pb-12 lg:p-12 p-6">
             From startup to enterprise, accelerate your business with complete
             digital solutions!
           </h1>
-          <div className="flex flex-col items-center gap-8">
+          <div className="">
             {" "}
-            {servicescontent.map((content, idx) => (
-              <div
-                className="flex lg:flex-row flex-col justify-center items-center w-full gap-12"
-                key={idx}
-              >
-                <div
-                  className={`flex flex-col gap-4 items-start justify-normal  ${
-                    idx % 2 === 0 ? "lg:order-1" : "lg:order-2"
-                  }`}
+            {servicescontent.map((content, idx) => {
+              return (
+                <motion.div
+                  key={idx}
+                  className="sticky top-0 z-20 bg-white  mb-12 flex lg:flex-row flex-col justify-center items-center w-full gap-12 border-t-[1px] p-6 lg:p-12"
                 >
-                  <h2 className="font-instrument-serif text-3xl">
-                    {content.name}
-                  </h2>
-                  <p>{content.content}</p>
-                </div>
-                <img
-                  className={`rounded-xl w-[400px] ${
-                    idx % 2 === 0 ? "lg:order-2" : "lg:order-1"
-                  }`}
-                  src={content.image}
-                  alt={`${content.name} img`}
-                />
-              </div>
-            ))}
+                  <div
+                    className={`flex flex-col gap-4 items-start justify-normal ${
+                      idx % 2 === 0 ? "lg:order-1" : "lg:order-2"
+                    }`}
+                  >
+                    <h2 className="font-instrument-serif text-3xl">
+                      {content.name}
+                    </h2>
+                    <p>{content.content}</p>
+                  </div>
+                  <img
+                    className={`rounded-xl w-[400px] ${
+                      idx % 2 === 0 ? "lg:order-2" : "lg:order-1"
+                    }`}
+                    src={content.image}
+                    alt={`${content.name} img`}
+                  />
+                </motion.div>
+              );
+            })}
           </div>
         </div>
         {/* <---------------------------END OF SERVICES SECTION WITH IMAGES---------------------------------------> */}
@@ -161,17 +182,21 @@ const Homepage = () => {
           <h1 className="font-instrument-serif text-4xl pb-12">
             Why You Should Choose IFNOTGODTECH
           </h1>
-          <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-8">
+          <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-8 place-items-center ">
             {whycontent.map((item) => (
-              <div
-                className="flex flex-col gap-3 bg-off-black border-background border-[0.5px] p-3 rounded-lg"
+              <motion.div
+                whileHover={{
+                  rotate: [0, -5, 5, -4, 4, -2, 2, 0],
+                  transition: { duration: 1, ease: "easeInOut" },
+                }}
+                className="flex flex-col gap-3 bg-off-black border-background border-[0.5px] p-3 rounded-lg lg:min-h-[200px] lg:min-w-[500px] max-w-[500px]"
                 key={item.title}
               >
                 <h3 className="capitalize text-2xl font-instrument-serif">
                   {item.title}
                 </h3>
                 <p className="lg:text-base text-sm">{item.content}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -183,12 +208,12 @@ const Homepage = () => {
             <h1 className="text-4xl font-instrument-serif ">
               Our insights and ideas
             </h1>
-            <button className="w-fit button-primary flex items-center justify-normal gap-3 text-sm ">
-              See More
-              <span>
-                <CgArrowRight />
-              </span>
-            </button>
+            <HoverButton
+              href="/contact-us"
+              text="See More"
+              icon={<CgArrowRight />}
+              className="button-primary"
+            />
           </div>
           <div className="lg:grid lg:grid-cols-3 flex justify-between overflow-x-auto snap-mandatory scrollbar-hide place-items-center pt-6 gap-3">
             {[...Array(3)].map((_, i) => (

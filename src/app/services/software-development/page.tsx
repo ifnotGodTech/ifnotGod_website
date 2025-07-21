@@ -1,3 +1,4 @@
+import HoverButton from "@/app/components/buttonHover";
 import AccordionSection from "@/app/components/software-development/Accordion";
 import Carasouel from "@/app/components/software-development/Carousel";
 import { CheckCircle2Icon } from "lucide-react";
@@ -94,28 +95,30 @@ const page = () => {
           growth, and delivers measurable business results through strategic,
           performance-driven development decisions.
         </p>
-        <button className="w-fit button-primary py-3">
-          Build your Project
-        </button>
+        <HoverButton
+          href="/contact-us"
+          text="Build your project"
+          className="button-primary w-fit"
+        />
       </div>
       {/* <-------------------SERVICES WE OFFER-------------------------> */}
-      <div className=" lg:py-12 py-6 lg:px-12 px-3">
-        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4">
+      <div className="">
+        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4 lg:py-12 py-6 lg:px-12 px-3">
           <h1 className="text-4xl font-instrument-serif capitalize">
             Services We Offer
           </h1>
-          <button className="hidden w-fit button-primary lg:flex items-center justify-normal gap-3 text-sm ">
-            Start your Project
-            <span>
-              <CgArrowRight />
-            </span>
-          </button>
+          <HoverButton
+            href="/contact-us"
+            text="Start your project"
+            className="button-primary"
+            icon={<CgArrowRight />}
+          />
         </div>
-        <div className="flex flex-col items-center gap-8 lg:px-12 px-6">
+        <div className="flex flex-col items-center gap-8">
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="flex lg:flex-row flex-col justify-center items-center w-full gap-12"
+              className="sticky top-0 z-20 bg-white border-b-[1px] lg:px-32 justify-center items-center w-full gap-12 flex lg:flex-row flex-col  "
               key={idx}
             >
               <div

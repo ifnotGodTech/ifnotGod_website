@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import HoverButton from "../buttonHover";
 
 const HeroSection = () => {
   return (
@@ -14,10 +15,8 @@ const HeroSection = () => {
           creating seamless, user-centered solutions that make an impact.
         </p>
         <div className="flex gap-3">
-          <button className="button-secondary">
-            <Link href="/contact-us">Contact Us</Link>
-          </button>
-          <button className="button-primary">Book A Free Call</button>
+           <HoverButton href="/contact-us" text="Contact us" className="button-secondary"/>
+           <HoverButton href="/contact-us" text="Book a free call" className="button-primary"/>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
+import HoverButton from "@/app/components/buttonHover";
 import AccordionSection from "@/app/components/design/Accordion";
 import Carasouel from "@/app/components/design/Carasouel";
-import {  CheckCircle2Icon } from "lucide-react";
+import { CheckCircle2Icon } from "lucide-react";
 import React from "react";
 import { CgArrowRight } from "react-icons/cg";
 
@@ -90,28 +91,30 @@ const page = () => {
           and drive measurable business growth through strategic, data-backed
           design decisions
         </p>
-        <button className="w-fit button-primary py-3">
-          Start your UI/UX Project
-        </button>
+        <HoverButton
+          href="/contact-us"
+          text="Start your UI/UX Project"
+          className="button-primary w-fit"
+        />
       </div>
       {/* <-------------------SERVICES WE OFFER-------------------------> */}
-      <div className=" lg:py-12 py-6 lg:px-12 px-3">
-        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4">
-          <h1 className="text-4xl font-instrument-serif capitalize">
+      <div className="">
+        <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full lg:p-12 py-6 px-3">
+          <h1 className="text-4xl font-instrument-serif capitalize  ">
             Services We Offer
           </h1>
-          <button className="hidden w-fit button-primary lg:flex items-center justify-normal gap-3 text-sm ">
-            See More
-            <span>
-              <CgArrowRight />
-            </span>
-          </button>
+          <HoverButton
+            href="/contact-us"
+            text="See More"
+            className="button-primary"
+            icon={<CgArrowRight />}
+          />
         </div>
-        <div className="flex flex-col items-center gap-8 lg:px-12 px-6">
+        <div className="flex flex-col items-center gap-8">
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="flex lg:flex-row flex-col justify-center items-center w-full gap-12"
+              className="sticky top-0 z-20 bg-white border-b-[1px] p-6 lg:px-12  flex lg:flex-row flex-col justify-center items-center w-full gap-12"
               key={idx}
             >
               <div
