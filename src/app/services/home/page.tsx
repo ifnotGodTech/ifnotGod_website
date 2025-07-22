@@ -1,13 +1,13 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import HeroSection from "../../components/home/HeroSection";
 import Marquee from "../../components/home/Marquee";
 import { CgArrowRight } from "react-icons/cg";
 import Testimony from "../../components/home/Testimony";
 import Accordion from "../../components/home/Accordion";
 import Cardbuild from "@/app/components/reusuables/cardbuild";
-import HoverButton from "@/app/components/buttonHover";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import HoverButton from "@/app/components/reusuables/buttonHover";
+import { motion} from "framer-motion";
 const Homepage = () => {
   const servicescontent = [
     {

@@ -1,6 +1,6 @@
 "use client";
-import Link from "next/link";
-import HoverButton from "../buttonHover";
+
+import HoverButton from "../reusuables/buttonHover";
 
 const HeroSection = () => {
   return (

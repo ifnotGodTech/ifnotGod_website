@@ -3,7 +3,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Link from "next/link";
-import HoverButton from "./buttonHover";
+import HoverButton from "./reusuables/buttonHover";
 const Footer = () => {
   return (
     <div className="bg-near-black p-6 lg:p-12 text-background">

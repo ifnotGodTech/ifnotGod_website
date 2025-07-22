@@ -6,8 +6,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import React from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
-import HoverButton from "../components/buttonHover";
-import { CgArrowRight } from "react-icons/cg";
+import HoverButton from "../components/reusuables/buttonHover";
+
 const page = () => {
   const typeContent = [
     "All Posts",
@@ -71,8 +71,8 @@ const page = () => {
                   <IoMdArrowDropdown className="absolute top-1/2 right-2 -translate-1/2" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {[...Array(12)].map((item) => (
-                    <DropdownMenuItem>+234</DropdownMenuItem>
+                  {[...Array(12)].map((_,i) => (
+                    <DropdownMenuItem key={i}>+234</DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>

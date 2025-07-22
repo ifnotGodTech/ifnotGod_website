@@ -4,7 +4,7 @@ import Link from "next/link";
 import { RiArrowDropDownFill } from "react-icons/ri";
 import { Menu } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import HoverButton from "./buttonHover";
+import HoverButton from "./reusuables/buttonHover";
 
 const Navbar = () => {
   const [openServices, setopenServices] = useState(false);

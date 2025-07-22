@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
-import Link from "next/link";
-import HoverButton from "../buttonHover";
+import HoverButton from "./buttonHover";
 
 const Cardbuild = () => {
   return (

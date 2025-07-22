@@ -1,4 +1,4 @@
-import HoverButton from "@/app/components/buttonHover";
+import HoverButton from "@/app/components/reusuables/buttonHover";
 import AccordionSection from "@/app/components/software-development/Accordion";
 import Carasouel from "@/app/components/software-development/Carousel";
 import { CheckCircle2Icon } from "lucide-react";

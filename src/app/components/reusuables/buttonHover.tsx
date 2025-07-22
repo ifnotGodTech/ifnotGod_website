@@ -12,7 +12,7 @@ type Props = {
 export default function HoverButton({ href, text, icon, className }: Props) {
   const controls = useAnimation();
   const [hovering, setHovering] = useState(false);
-
+  console.log(hovering)
   const handleHoverStart = () => {
     setHovering(true);
     controls.start({
