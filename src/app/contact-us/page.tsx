@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import HoverButton from "../components/reusuables/buttonHover";
 
-const page = () => {
+const Page = () => {
   const typeContent = [
     "Software Development",
     "UI/UX Design",
@@ -202,4 +202,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
