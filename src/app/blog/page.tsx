@@ -85,7 +85,7 @@ const Page = () => {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   src={item.image}
                   alt="programmer at work"
-                  className="rounded-2xl lg:w-96 min-w-[350px] cursor-pointer "
+                  className="rounded-2xl lg:w-96 min-w-[250px] cursor-pointer "
                   onClick={() => route.push(`/blog/${item.id}`)}
                 />
                 <motion.div

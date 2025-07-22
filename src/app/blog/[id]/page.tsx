@@ -128,7 +128,7 @@ const RelatedPosts = () => {
             <img
               src="/images/ProgrammeratWork.png"
               alt="programmer at work"
-              className="rounded-2xl lg:w-96 min-w-[350px]"
+              className="rounded-2xl lg:w-96 min-w-[250px]"
             />
             <div className="flex justify-between items-center max-w-84 w-full text-sm">
               <button className="rounded-xl p-2 border-[1px] border-foreground text-xs lg:text-sm">

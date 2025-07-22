@@ -66,12 +66,12 @@ const Footer = () => {
               </li>
               <li className="flex gap-2 items-center cursor-pointer">
                 <Mail className="w-3" />{" "}
-                <a href="mailto:ifnotgodtech@gmail.com">
+                <a href="mailto:ifnotgodtech@gmail.com" className="text-nowrap">
                   ifnotgodtech@gmail.com
                 </a>
               </li>
               <li className="flex gap-2 items-center cursor-pointer">
-                <Phone className="w-3" /> <span>+234 91 234 56578</span>
+                <Phone className="w-3" /> <span className="text-nowrap">+234 91 234 56578</span>
               </li>
             </ul>
           </div>
@@ -89,7 +89,7 @@ const Footer = () => {
           <Mail className="absolute left-3 top-2" stroke="#4E4F52" />
         </div>
 
-         <HoverButton href="/contact-us" text="Subscribe now"/>
+         <HoverButton href="/contact-us" text="Subscribe now" className="button-primary"/>
       </div>
       <div className="py-12 flex lg:flex-row flex-col justify-between lg:items-center gap-3 lg:gap-0">
         <p className="text-xs order-2 lg:order-1 text-gray-black">

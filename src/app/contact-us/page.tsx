@@ -1,21 +1,31 @@
+"use client";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import React from "react";
+import React, { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import HoverButton from "../components/reusuables/buttonHover";
 
 const page = () => {
   const typeContent = [
-    "All Posts",
     "Software Development",
     "UI/UX Design",
     "IT Consulting",
     "Quality Assurance",
   ];
+  const budget = [
+    "Less than $1000",
+    " $1000",
+    " $2000",
+    " $5000",
+    " $5000 or more",
+    "I'm not sure",
+  ];
+  const [selectContent, setSelectContent] = useState<string[]>([]);
+  const [selectBudget, setSelectBudget] = useState("");
   return (
     <div>
       {" "}
@@ -46,15 +56,17 @@ const page = () => {
             <div className="flex flex-col gap-2">
               <p>Full Name</p>
               <input
-                className="border-[1px] border-gray rounded-md p-2"
+                className="border-[1px] border-gray rounded-md p-2 placeholder:text-xs"
                 type="text"
+                placeholder="Enter Full Name"
               />
             </div>
             <div className="flex flex-col gap-2">
               <p>Company Name </p>
               <input
-                className="border-[1px] border-gray rounded-md p-2"
+                className="border-[1px] border-gray rounded-md p-2 placeholder:text-xs"
                 type="text"
+                placeholder="Enter Company Name"
               />
             </div>
           </div>
@@ -65,13 +77,14 @@ const page = () => {
                 <DropdownMenuTrigger className="relative">
                   {" "}
                   <input
-                    className="border-[1px] border-gray rounded-md p-2 lg:w-[150px] w-[100px]"
+                    className="border-[1px] border-gray rounded-md p-2 lg:w-[150px] w-[100px] placeholder:text-xs"
                     type="text"
+                    placeholder="Country code"
                   />
                   <IoMdArrowDropdown className="absolute top-1/2 right-2 -translate-1/2" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {[...Array(12)].map((_,i) => (
+                  {[...Array(12)].map((_, i) => (
                     <DropdownMenuItem key={i}>+234</DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -85,7 +98,7 @@ const page = () => {
           <div className="flex flex-col gap-2 mt-8">
             <p>Email Address</p>
             <input
-              className="border-[1px] border-gray rounded-md p-2 w-full"
+              className="border-[1px] border-gray rounded-md p-2 w-full placeholder:text-xs"
               type="email"
               placeholder="example@email.com"
             />
@@ -96,9 +109,11 @@ const page = () => {
               <DropdownMenuTrigger className="relative">
                 {" "}
                 <input
-                  className="border-[1px] border-gray rounded-md p-2  w-full"
+                  className="border-[1px] border-gray rounded-md p-2  w-full placeholder:text-xs"
                   type="text"
                   placeholder="Select"
+                  value={selectBudget}
+                  readOnly
                 />
                 <IoMdArrowDropdown className="absolute top-1/2 right-2 -translate-1/2" />
               </DropdownMenuTrigger>
@@ -106,12 +121,11 @@ const page = () => {
                 align="start"
                 className="w-[var(--radix-popper-anchor-width)] min-w-[var(--radix-popper-anchor-width)]"
               >
-                <DropdownMenuItem>Less than $1000</DropdownMenuItem>
-                <DropdownMenuItem>$1000</DropdownMenuItem>
-                <DropdownMenuItem>$2000</DropdownMenuItem>
-                <DropdownMenuItem>$5000</DropdownMenuItem>
-                <DropdownMenuItem>$5000 or more</DropdownMenuItem>
-                <DropdownMenuItem>I&apos;m not sure</DropdownMenuItem>
+                {budget.map((price, idx) => (
+                  <DropdownMenuItem key={idx} onClick={() => setSelectBudget(price)}>
+                    {price}
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -120,9 +134,18 @@ const page = () => {
             <div className="flex item-center justify-normal gap-3 w-full flex-wrap">
               {typeContent.map((item, idx) => (
                 <p
-                  className={`
-                      border-gray border-[1px]
-                   rounded-2xl p-2  w-fit cursor-pointer`}
+                  onClick={() => {
+                    setSelectContent((prev) =>
+                      prev.includes(item)
+                        ? prev.filter((i) => i !== item)
+                        : [...prev, item]
+                    );
+                  }}
+                  className={`rounded-2xl p-2 w-fit cursor-pointer ${
+                    selectContent.includes(item)
+                      ? "bg-primary text-white"
+                      : "bg-transparent border-gray border-[1px]"
+                  }`}
                   key={idx}
                 >
                   {item}
@@ -136,7 +159,7 @@ const page = () => {
               name=""
               id=""
               placeholder="Tell us about your project and any specific requirement you have in mind..."
-              className="rounded-lg p-2 border-[1px] border-gray resize-none h-[150px] w-full"
+              className="rounded-lg p-2 border-[1px] border-gray resize-none h-[150px] w-full placeholder:text-xs"
             ></textarea>
           </div>
           <div className="flex lg:flex-row flex-col-reverse justify-between items-stretch lg:items-end lg:align-bottom w-full mt-8 lg:mt-4">
