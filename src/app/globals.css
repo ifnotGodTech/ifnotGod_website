@@ -92,10 +92,10 @@
 }
 @layer components {
   .button-primary {
-    @apply bg-primary lg:py-3 py-2 rounded-md text-background lg:px-4 px-3 capitalize cursor-pointer lg:text-sm text-xs hover:text-primary;
+    @apply bg-primary py-3 rounded-md text-background px-4 capitalize cursor-pointer lg:text-sm text-xs hover:text-primary  hover:border-primary border-transparent;
   }
   .button-secondary {
-    @apply border-1 border-primary lg:py-3 py-2 rounded-md text-primary lg:px-4 px-3 capitalize cursor-pointer lg:text-sm text-xs hover:bg-primary hover:text-white;
+    @apply border-1 border-primary py-3 rounded-md text-primary px-4  capitalize cursor-pointer lg:text-sm text-xs hover:bg-primary hover:text-primary bg-transparent;
   }
 }
 @layer utilities {

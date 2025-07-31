@@ -25,6 +25,48 @@ const page = () => {
         "We don’t aim for one-off projects—we build long-term partnerships. By understanding your business and supporting your growth, we become more than just a vendor. We become part of your team.",
     },
   ];
+  const teamMember = [
+    {
+      img: "/images/teamphotos/Igiebor Elvis_Software Developer.JPG",
+      name: "Elvis Igbiebor",
+      role: "Software Engineer",
+    },
+    {
+      img: "/images/teamphotos/Adu Oreoluwa_UI_UX Designer.jpg",
+      name: "Adu Oreoluwa",
+      role: "UI/UX Designer",
+    },
+    {
+      img: "/images/teamphotos/Oyindamola Abolarin_QA Tester.jpg",
+      name: "Oyindamola Abolarin",
+      role: "QA Tester",
+    },
+    {
+      img: "/images/teamphotos/Okereke Faith_Software developer.JPG",
+      name: "Okereke Faith",
+      role: "Frontend Engineer",
+    },
+    {
+      img: "/images/teamphotos/Godson Jeremiah_Backend Developer.jpg",
+      name: "Godson Jeremiah",
+      role: "Backend Engineer",
+    },
+    {
+      img: "/images/teamphotos/Tobechukwu Dike_QA Tester.JPG",
+      name: "Tobechukwu Dike",
+      role: "QA Tester",
+    },
+    {
+      img: "/images/teamphotos/Abah Success_backend developer.JPG",
+      name: "Abah Succeess",
+      role: "Backend Engineer",
+    },
+    {
+      img: "/images/teamphotos/Akinola Daniel_UI_UX Designer.JPG",
+      name: "Akinola Daniel",
+      role: "UI/UX Designer",
+    },
+  ];
   return (
     <div>
       {/* <------------------------HERO SECTION -------------------> */}
@@ -61,14 +103,15 @@ const page = () => {
             marked the start of our full-scale product delivery journey.
           </p>
           <p className="pt-4">
-            We&apos;re here to help your company achieve its goals faster. While you
-            focus on strategy and growth, we handle the technical heavy
+            We&apos;re here to help your company achieve its goals faster. While
+            you focus on strategy and growth, we handle the technical heavy
             lifting—turning time zone differences into your advantage.{" "}
           </p>
           <p className="pt-4">
             Today, we&apos;re a team of 12 skilled professionals serving clients
-            across Africa, Europe, and North America. We&apos;ve mastered seamless
-            remote collaboration, ensuring consistent progress on your projects.
+            across Africa, Europe, and North America. We&apos;ve mastered
+            seamless remote collaboration, ensuring consistent progress on your
+            projects.
           </p>{" "}
           <p className="pt-4">
             We don&apos;t just build software—we build trust through consistent
@@ -124,28 +167,28 @@ const page = () => {
       {/* <----------------------------MEET  OUR TEAM-----------------------------------> */}
       <div className="bg-foreground lg:py-12 py-6 text-background">
         <h2 className="lg:text-3xl text-xl text-center pb-12">meet our team</h2>
-        <div className="grid lg:grid-cols-4 grid-cols-2 justify-items-center w-full place-items-center items-center lg:px-52">
-          {[...Array(12)].map((_, idx) => (
+        <div className="grid lg:grid-cols-4 grid-cols-2 justify-items-center w-full place-items-center items-center lg:px-16">
+          {teamMember.map((member, idx) => (
             <div
               className="flex flex-col gap-4 items-center justify-center mx-auto border-near-black border-[1px] p-9"
               key={idx}
             >
               <img
-                src="/images/avatarteam.png"
+                src={member.img}
                 alt="team picture"
-                className="rounded-lg lg:h-32 lg:w-32 w-64 h-64 object-cover"
+                className="rounded-lg lg:min-h-52 lg:min-w-52 w-64 h-64 object-cover"
               />
               <div className="text-center">
-                <h4 className="lg:text-2xl text-lg">Elvis Igbiebor</h4>
-                <p className="lg:text-base text-sm">Software Engineer</p>
+                <h4 className="lg:text-2xl text-lg">{member.name}</h4>
+                <p className="lg:text-base text-sm">{member.role}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
       <Testimony />
-      <div className="pt-5"/>
-      <Cardbuild/>
+      <div className="pt-5" />
+      <Cardbuild />
     </div>
   );
 };

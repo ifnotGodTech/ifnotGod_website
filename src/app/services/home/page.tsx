@@ -7,9 +7,8 @@ import Testimony from "../../components/home/Testimony";
 import Accordion from "../../components/home/Accordion";
 import Cardbuild from "@/app/components/reusuables/cardbuild";
 import HoverButton from "@/app/components/reusuables/buttonHover";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 const Homepage = () => {
-  
   const servicescontent = [
     {
       id: 1,
@@ -83,7 +82,7 @@ const Homepage = () => {
               className="button-primary border-transparent hover:border-transparent hover:bg-foreground"
             />
           </div>
-          <div className="flex lg:flex-row flex-col justify-center lg:gap-32 lg:items-center  lg:px-0">
+          <div className="flex lg:flex-row flex-col justify-center lg:gap-5 lg:items-center  lg:px-0">
             {[...Array(2)].map((_, idx) => (
               <div className="pt-8" key={idx}>
                 <motion.div
@@ -183,7 +182,7 @@ const Homepage = () => {
           <h1 className="font-instrument-serif text-4xl pb-12">
             Why You Should Choose IFNOTGODTECH
           </h1>
-          <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-8 place-items-center ">
+          <div className="flex lg:flex-row flex-col flex-wrap w-full gap-5  ">
             {whycontent.map((item) => (
               <motion.div
                 whileHover={{

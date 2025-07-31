@@ -11,7 +11,8 @@ const config: Config = {
         "off-black": 'var(--off-black)',
         gray: 'var(--gray)',
         "near-black": 'var(--near-black)',
-        "gray-black":'var(--gray-black)',
+        "gray-black": 'var(--gray-black)',
+        desctructive: 'var(--destructive)',
       },
       fontFamily: {
         inter: ['var(--font-inter)', 'sans-serif'],

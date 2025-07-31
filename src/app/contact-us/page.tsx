@@ -5,10 +5,18 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import React, { useState } from "react";
+import React, { FormEventHandler, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import HoverButton from "../components/reusuables/buttonHover";
 
+type formData = {
+  fullname: string;
+  companyname: string;
+  phonenumber: string;
+  email: string;
+  service: String[];
+  description: string;
+};
 const Page = () => {
   const typeContent = [
     "Software Development",
@@ -26,14 +34,54 @@ const Page = () => {
   ];
   const [selectContent, setSelectContent] = useState<string[]>([]);
   const [selectBudget, setSelectBudget] = useState("");
+  const [error, setError] = useState(false);
+  const [formData, setFormData] = useState<formData>({
+    fullname: "",
+    companyname: "",
+    phonenumber: "",
+    email: "",
+    service: [],
+    description: "",
+  });
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const sendMessage = () => {
+    const updatedData = {
+      ...formData,
+      service: selectContent,
+      budget: selectBudget,
+    };
+
+    const formValid =
+      updatedData.fullname ||
+      updatedData.companyname ||
+      updatedData.phonenumber ||
+      updatedData.email ||
+      updatedData.description ||
+      updatedData.service.length > 0 ||
+      updatedData.budget;
+
+    if (!formValid) {
+      setError(true);
+      console.log(error);
+    } else {
+      console.log(updatedData);
+    }
+  };
+
   return (
-    <div>
+    <div className="w-full">
       {" "}
       {/* <------------------------HERO SECTION -------------------> */}
       <div className="relative">
         <img
           src="/images/aboutusimg.jpg"
-          className=" lg:h-[300px] object-cover h-[300px] w-full"
+          className="object-cover h-[300px] w-full"
           alt="bg-image"
         />
         <div className="absolute inset-0 bg-black opacity-60" />
@@ -51,23 +99,53 @@ const Page = () => {
             back to you soon.
           </p>
         </div>
-        <form action="" className="pb-6 bg-white rounded-lg shadow-md p-6">
-          <div className="flex lg:flex-row flex-col gap-3 lg:justify-between justify-normal lg:items-center items-start">
-            <div className="flex flex-col gap-2">
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            sendMessage();
+          }}
+          className="pb-6 bg-white rounded-lg shadow-md p-6 w-full"
+        >
+          <div className="flex lg:flex-row flex-col gap-2 lg:justify-between w-full justify-normal lg:items-center items-start">
+            <div className="flex flex-col gap-2 w-full">
               <p>Full Name</p>
               <input
-                className="border-[1px] border-gray rounded-md p-2 placeholder:text-xs"
+                className={`${
+                  error && !formData.fullname
+                    ? `border-destructive`
+                    : `border-gray`
+                } border-[1px] rounded-md p-2 placeholder:text-xs`}
                 type="text"
+                name="fullname"
+                value={formData.fullname}
+                onChange={handleChange}
                 placeholder="Enter Full Name"
               />
+              {error && !formData.fullname && (
+                <small className="text-destructive text-xs">
+                  This field is required
+                </small>
+              )}
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 w-full">
               <p>Company Name </p>
               <input
-                className="border-[1px] border-gray rounded-md p-2 placeholder:text-xs"
+                className={`${
+                  error && !formData.companyname
+                    ? `border-destructive`
+                    : `border-gray`
+                } border-[1px] rounded-md p-2 placeholder:text-xs`}
                 type="text"
+                name="companyname"
+                value={formData.companyname}
+                onChange={handleChange}
                 placeholder="Enter Company Name"
               />
+              {error && !formData.companyname && (
+                <small className="text-destructive text-xs">
+                  This field is required
+                </small>
+              )}
             </div>
           </div>
           <div className="flex gap-2 justify-normal items-end mt-8">
@@ -77,7 +155,11 @@ const Page = () => {
                 <DropdownMenuTrigger className="relative">
                   {" "}
                   <input
-                    className="border-[1px] border-gray rounded-md p-2 lg:w-[150px] w-[100px] placeholder:text-xs"
+                    className={`${
+                      error && !formData.phonenumber
+                        ? `border-destructive`
+                        : `border-gray`
+                    } border-[1px] rounded-md p-2 placeholder:text-xs  lg:w-[150px] w-[100px]`}
                     type="text"
                     placeholder="Country code"
                   />
@@ -91,17 +173,39 @@ const Page = () => {
               </DropdownMenu>
             </div>
             <input
-              className="border-[1px] border-gray rounded-md p-2 w-full"
+              className={`${
+                error && !formData.phonenumber
+                  ? `border-destructive`
+                  : `border-gray`
+              } border-[1px] rounded-md p-2 placeholder:text-xs w-full`}
               type="number"
+              name="phonenumber"
+              value={formData.phonenumber}
+              onChange={handleChange}
             />
           </div>
+          {error && !formData.phonenumber && (
+            <small className="text-destructive text-xs">
+              These field are required
+            </small>
+          )}
           <div className="flex flex-col gap-2 mt-8">
             <p>Email Address</p>
             <input
-              className="border-[1px] border-gray rounded-md p-2 w-full placeholder:text-xs"
+              className={`${
+                error && !formData.email ? `border-destructive` : `border-gray`
+              } border-[1px] rounded-md p-2 placeholder:text-xs`}
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="example@email.com"
             />
+            {error && !formData.email && (
+              <small className="text-destructive text-xs">
+                This field is required
+              </small>
+            )}
           </div>
           <div className="flex flex-col gap-2 mt-8">
             <p>Project Budget</p>
@@ -109,7 +213,11 @@ const Page = () => {
               <DropdownMenuTrigger className="relative">
                 {" "}
                 <input
-                  className="border-[1px] border-gray rounded-md p-2  w-full placeholder:text-xs"
+                  className={`${
+                    error && !formData.phonenumber
+                      ? `border-destructive`
+                      : `border-gray`
+                  } border-[1px] border-gray rounded-md p-2  w-full placeholder:text-xs`}
                   type="text"
                   placeholder="Select"
                   value={selectBudget}
@@ -122,13 +230,21 @@ const Page = () => {
                 className="w-[var(--radix-popper-anchor-width)] min-w-[var(--radix-popper-anchor-width)]"
               >
                 {budget.map((price, idx) => (
-                  <DropdownMenuItem key={idx} onClick={() => setSelectBudget(price)}>
+                  <DropdownMenuItem
+                    key={idx}
+                    onClick={() => setSelectBudget(price)}
+                  >
                     {price}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
+          {error && !selectBudget && (
+            <small className="text-destructive text-xs">
+              This field is required
+            </small>
+          )}
           <div className="mt-8">
             <p className="text-lg pb-3">How can we help you?</p>
             <div className="flex item-center justify-normal gap-3 w-full flex-wrap">
@@ -141,10 +257,10 @@ const Page = () => {
                         : [...prev, item]
                     );
                   }}
-                  className={`rounded-2xl p-2 w-fit cursor-pointer ${
+                  className={`rounded-md py-2 border px-4 w-fit text-sm cursor-pointer ${
                     selectContent.includes(item)
-                      ? "bg-primary text-white"
-                      : "bg-transparent border-gray border-[1px]"
+                      ? "bg-[#fbede4] border-primary"
+                      : "bg-transparent border-gray"
                   }`}
                   key={idx}
                 >
@@ -152,22 +268,36 @@ const Page = () => {
                 </p>
               ))}
             </div>
+            {error && selectContent.length < 1 && (
+              <small className="text-destructive text-xs">
+                This field are required
+              </small>
+            )}
           </div>
           <div className="flex flex-col gap-2 mt-8">
             <p>Project description</p>
             <textarea
-              name=""
-              id=""
+              name="description"
+              id="description"
+              value={formData.description}
+              onChange={handleChange}
               placeholder="Tell us about your project and any specific requirement you have in mind..."
               className="rounded-lg p-2 border-[1px] border-gray resize-none h-[150px] w-full placeholder:text-xs"
             ></textarea>
+            {error && !formData.description && (
+              <small className="text-destructive text-xs">
+                This field is required
+              </small>
+            )}
           </div>
           <div className="flex lg:flex-row flex-col-reverse justify-between items-stretch lg:items-end lg:align-bottom w-full mt-8 lg:mt-4">
             <HoverButton
               href="/contact-us"
               text="Send Message"
-              className="button-primary"
+              className="button-primary mt-5 lg:mt-0 w-fit"
+              type="submit"
             />
+
             <div className="flex flex-col text-sm">
               <p className="text-gray lg:text-right">Prefer email? </p>
               <a href="mailto:IfnotGodtech@gmail.com">IfnotGodtech@gmail.com</a>
@@ -178,22 +308,22 @@ const Page = () => {
       <div className="lg:p-12 p-4 bg-background relative text-center w-full">
         <img
           src="/images/backgroundcontact.png"
-          className="lg:h-auto rounded-2xl h-48"
+          className="lg:h-auto rounded-2xl h-52"
           alt="bgimage"
         />
-        <div className="rounded-2xl absolute top-1/2 left-1/2 -translate-1/2 flex flex-col gap-2 items-center justify-center text-background lg:py-8 w-full px-12">
-          <h3 className="lg:text-4xl text-xl ">
+        <div className="rounded-2xl absolute top-1/2 left-1/2 -translate-1/2 flex flex-col gap-2 items-center justify-center text-background lg:py-8 lg:px-12 py-6 ">
+          <h3 className="lg:text-4xl text-2xl ">
             Let&apos;s build something amazing together
           </h3>
-          <p className="lg:text-sm text-xs">
+          <p className="lg:text-sm text-xs text-wrap w-64">
             Got a project idea? We&apos;d love to hear about it! Book a Call
             with Us
           </p>
-          <div className="flex items-center justify-center my-6">
+          <div className="flex items-center justify-center my-3">
             <HoverButton
               href="/contact-us"
               text="Book A Free Call"
-              className="button-primary"
+              className="button-primary border-0 hover:bg-transparent rounded-md"
             />
           </div>
         </div>

@@ -76,10 +76,10 @@ const Navbar = () => {
             </div>
 
             {openServices && (
-              <div className="bg-background text-gray py-4 px-8 z-20 flex justify-normal items-center w-fit absolute top-16 left-2  shadow-lg overflow-x-hidden">
+              <div className="bg-background text-gray py-4 px-8 z-20 flex justify-normal items-center w-fit absolute top-16 left-2  shadow-lg overflow-x-hidden ">
                 {servicesItems.map((item, idx) => (
                   <div
-                    className="flex flex-col justify-normal items-start hover:bg-gray-200 cursor-pointer p-2 min-w-[250px]"
+                    className="flex flex-col justify-normal items-start hover:bg-gray-200 cursor-pointer p-3 min-w-[250px] rounded-xl"
                     key={idx}
                     onClick={() => {
                       route.push(item.href);
@@ -98,6 +98,7 @@ const Navbar = () => {
 
           {navItems.map((item) => (
             <Link
+              onClick={() => openServices && setopenServices(false)}
               key={item.label}
               href={item.href}
               className={`capitalize cursor-pointer ${
@@ -169,7 +170,7 @@ const Navbar = () => {
                         onClick={() => {
                           route.push(item.href);
                           setOpenNav(false);
-                          setopenServices(false)
+                          setopenServices(false);
                         }}
                         className="flex flex-col justify-normal items-start p-4 hover:bg-gray-200"
                       >
@@ -185,7 +186,7 @@ const Navbar = () => {
                 {/* Main nav links */}
                 {navItems.map((item) => (
                   <Link
-                  onClick={()=> setOpenNav(false)}
+                    onClick={() => setOpenNav(false)}
                     key={item.label}
                     href={item.href}
                     className={`w-full capitalize cursor-pointer ${
