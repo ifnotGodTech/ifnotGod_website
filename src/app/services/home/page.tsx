@@ -8,6 +8,8 @@ import Accordion from "../../components/home/Accordion";
 import Cardbuild from "@/app/components/reusuables/cardbuild";
 import HoverButton from "@/app/components/reusuables/buttonHover";
 import { motion } from "framer-motion";
+import Calendly from "../../components/reusuables/Calendly/Calendly";
+
 const Homepage = () => {
   const servicescontent = [
     {
@@ -66,6 +68,7 @@ const Homepage = () => {
   return (
     <div className="">
       <HeroSection />
+      <Calendly />
       <div className="bg-foreground mt-12">
         <Marquee />
 
@@ -185,6 +188,7 @@ const Homepage = () => {
           <div className="flex lg:flex-row flex-col flex-wrap w-full gap-5  ">
             {whycontent.map((item) => (
               <motion.div
+                animate={{ rotate: 0 }}
                 whileHover={{
                   rotate: [0, -5, 5, -4, 4, -2, 2, 0],
                   transition: { duration: 1, ease: "easeInOut" },

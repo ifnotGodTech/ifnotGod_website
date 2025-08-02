@@ -20,6 +20,7 @@ export default function HoverButton({
 }: Props) {
   const controls = useAnimation();
   const [hovering, setHovering] = useState(false);
+  console.log(hovering)
 
   const handleHoverStart = () => {
     setHovering(true);

@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import React, { FormEventHandler, useState } from "react";
+import React, { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import HoverButton from "../components/reusuables/buttonHover";
 
@@ -14,7 +14,7 @@ type formData = {
   companyname: string;
   phonenumber: string;
   email: string;
-  service: String[];
+  service: string[];
   description: string;
 };
 const Page = () => {
@@ -76,7 +76,6 @@ const Page = () => {
 
   return (
     <div className="w-full">
-      {" "}
       {/* <------------------------HERO SECTION -------------------> */}
       <div className="relative">
         <img
