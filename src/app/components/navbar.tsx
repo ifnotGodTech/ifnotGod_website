@@ -55,7 +55,7 @@ const Navbar = () => {
       <nav className="relative p-4 bg-background lg:flex justify-between items-center w-full px-12 hidden">
         <img
           src="/images/MAIN-IFNOTGODTECH-LOGO.png"
-          className="w-24 cursor-pointer"
+          className="w-24 cursor-pointer select-none"
           alt="logo"
           onClick={() => route.push("/")}
         />

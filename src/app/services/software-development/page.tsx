@@ -118,7 +118,7 @@ const page = () => {
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="sticky top-0 z-20 bg-white border-b-[1px] lg:px-12 justify-center items-center w-full gap-12 flex lg:flex-row flex-col  "
+              className="sticky top-0 z-20 bg-white border-b-[1px] lg:px-12 lg:py-6 justify-center items-center w-full gap-12 flex lg:flex-row flex-col "
               key={idx}
             >
               <div
