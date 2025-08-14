@@ -180,17 +180,17 @@ const page = () => {
       </div>
       {/* <----------------------------MEET  OUR TEAM-----------------------------------> */}
       <div className="bg-foreground lg:py-12 py-6 text-background">
-        <h2 className="lg:text-3xl text-xl text-center pb-12">meet our team</h2>
-        <div className="grid lg:grid-cols-4 grid-cols-2 justify-items-center w-full place-items-center items-center lg:px-16">
+        <h2 className="lg:text-3xl text-xl text-center pb-12">Meet our team</h2>
+        <div className=" grid lg:grid-cols-4 grid-cols-2 justify-items-center w-full place-items-center items-center lg:px-16 px-0">
           {teamMember.map((member, idx) => (
             <div
-              className="flex flex-col gap-4 items-center justify-center mx-auto border-near-black border-[1px] p-9"
+              className=" flex flex-col gap-4 items-center justify-center mx-auto border-near-black border-[1px] lg:p-9 py-9 px-5"
               key={idx}
             >
               <img
                 src={member.img}
                 alt="team picture"
-                className="rounded-lg lg:min-h-52 lg:min-w-52 w-64 h-64 object-cover"
+                className="rounded-lg lg:min-h-52 lg:min-w-52 w-52 h-64 object-cover"
               />
               <div className="text-center">
                 <h4 className="lg:text-2xl text-lg">{member.name}</h4>
