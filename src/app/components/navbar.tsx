@@ -110,7 +110,7 @@ const Navbar = () => {
           ))}
         </div>
         <HoverButton
-          href="/contact-us"
+          href="/book-a-call"
           text="Book a free call"
           className="button-primary"
         />
@@ -200,7 +200,7 @@ const Navbar = () => {
 
               <div className="w-full px-4 mt-6 flex items-center">
                 <HoverButton
-                  href="/contact-us"
+                  href="/book-a-call"
                   text="Book a free call"
                   className="w-[90vw] py-3 text-center button-primary"
                 />
@@ -214,7 +214,7 @@ const Navbar = () => {
           <Link className="text-gray" href="/">
             Home/
           </Link>{" "}
-          <span className="text-black">{findname}</span>
+          <span className="text-black">{findname ||"Book a Call"}</span>
         </p>
       )}
     </>

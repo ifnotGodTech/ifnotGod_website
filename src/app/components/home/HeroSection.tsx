@@ -16,7 +16,7 @@ const HeroSection = () => {
         </p>
         <div className="flex gap-3">
            <HoverButton href="/contact-us" text="Contact us" className="button-secondary"/>
-           <HoverButton href="/contact-us" text="Book a free call" className="button-primary"/>
+           <HoverButton href="/book-a-call" text="Book a free call" className="button-primary"/>
         </div>
       </div>
     </div>

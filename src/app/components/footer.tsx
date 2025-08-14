@@ -89,7 +89,7 @@ const Footer = () => {
           <Mail className="absolute left-3 top-2" stroke="#4E4F52" />
         </div>
 
-         <HoverButton href="/contact-us" text="Subscribe now" className="button-primary"/>
+         <HoverButton href="/book-a-call" text="Subscribe now" className="button-primary"/>
       </div>
       <div className="py-12 flex lg:flex-row flex-col justify-between lg:items-center gap-3 lg:gap-0">
         <p className="text-xs order-2 lg:order-1 text-gray-black">

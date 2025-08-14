@@ -1,8 +1,11 @@
+"use client"
 import React from "react";
 import Testimony from "../components/home/Testimony";
 import Cardbuild from "../components/reusuables/cardbuild";
 
 const page = () => {
+
+
   const aboutcontent = [
     {
       title: "clear communication",
@@ -29,20 +32,25 @@ const page = () => {
     {
       img: "/images/teamphotos/Igiebor Elvis_Software Developer.JPG",
       name: "Elvis Igbiebor",
-      role: "Software Engineer",
+      role: "CEO/Software Engineer",
     },
     {
       img: "/images/teamphotos/Adu Oreoluwa_UI_UX Designer.jpg",
       name: "Adu Oreoluwa",
-      role: "UI/UX Designer",
+      role: "Lead Product Designer",
     },
     {
       img: "/images/teamphotos/Oyindamola Abolarin_QA Tester.jpg",
       name: "Oyindamola Abolarin",
-      role: "QA Tester",
+      role: "Lead Software Tester",
     },
     {
-      img: "/images/teamphotos/Okereke Faith_Software developer.JPG",
+      img: "/images/teamphotos/Edwin Chris.jpg",
+      name: "Edwin Chris",
+      role: "Lead Frontend Engineer",
+    },
+    {
+      img: "/images/teamphotos/Okereke Faith_Software developer.jpg",
       name: "Okereke Faith",
       role: "Frontend Engineer",
     },
@@ -52,17 +60,22 @@ const page = () => {
       role: "Backend Engineer",
     },
     {
-      img: "/images/teamphotos/Tobechukwu Dike_QA Tester.JPG",
+      img: "/images/teamphotos/Pamela.jpg",
+      name: "Pamela Animam",
+      role: "QA Tester",
+    },
+    {
+      img: "/images/teamphotos/Tobechukwu Dike_QA Tester.jpg",
       name: "Tobechukwu Dike",
       role: "QA Tester",
     },
     {
-      img: "/images/teamphotos/Abah Success_backend developer.JPG",
+      img: "/images/teamphotos/Abah Success_backend developer.jpg",
       name: "Abah Succeess",
       role: "Backend Engineer",
     },
     {
-      img: "/images/teamphotos/Akinola Daniel_UI_UX Designer.JPG",
+      img: "/images/teamphotos/Akinola Daniel_UI_UX Designer.jpg",
       name: "Akinola Daniel",
       role: "UI/UX Designer",
     },
@@ -81,6 +94,7 @@ const page = () => {
           about us
         </h1>
       </div>
+       
       {/* <-------------------OUR STORY-----------------------------------> */}
       <div className="lg:p-24 p-6 flex lg:flex-row lg:justify-center lg:items-start flex-col-reverse lg:gap-12 gap-6">
         <img

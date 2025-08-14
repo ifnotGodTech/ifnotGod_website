@@ -320,7 +320,7 @@ const Page = () => {
           </p>
           <div className="flex items-center justify-center my-3">
             <HoverButton
-              href="/contact-us"
+              href="/book-a-call"
               text="Book A Free Call"
               className="button-primary border-0 hover:bg-transparent rounded-md"
             />
