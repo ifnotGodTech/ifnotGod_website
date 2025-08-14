@@ -9,7 +9,6 @@ import Cardbuild from "@/app/components/reusuables/cardbuild";
 import HoverButton from "@/app/components/reusuables/buttonHover";
 import { motion } from "framer-motion";
 import Calendly from "../../components/reusuables/Calendly/Calendly";
-import BookingPage from "@/app/book-a-call/page";
 
 const Homepage = () => {
   const servicescontent = [
