@@ -75,7 +75,7 @@ const Page = () => {
               whileHover="hover"
               initial="rest"
               animate="rest"
-              className="flex flex-col gap-2 items-start max-w-[350px] lg:max-w-96 "
+              className="flex flex-col gap-2 items-start max-w-full lg:max-w-96 mt-6"
               key={item.id}
             >
               <div className="overflow-hidden rounded-2xl relative">
@@ -85,7 +85,7 @@ const Page = () => {
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                   src={item.image}
                   alt="programmer at work"
-                  className="rounded-2xl lg:w-96 min-w-[250px] cursor-pointer "
+                  className="rounded-2xl lg:w-96 min-w-[250px] cursor-pointer mb-6"
                   onClick={() => route.push(`/blog/${item.id}`)}
                 />
                 <motion.div

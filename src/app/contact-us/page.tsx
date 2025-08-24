@@ -160,7 +160,6 @@ const Page = () => {
                         : `border-gray`
                     } border-[1px] rounded-md p-2 placeholder:text-xs  lg:w-[150px] w-[100px]`}
                     type="text"
-                    placeholder="Country code"
                   />
                   <IoMdArrowDropdown className="absolute top-1/2 right-2 -translate-1/2" />
                 </DropdownMenuTrigger>
@@ -304,27 +303,29 @@ const Page = () => {
           </div>
         </form>
       </div>
-      <div className="lg:p-12 p-4 bg-background relative text-center w-full">
-        <img
-          src="/images/backgroundcontact.png"
-          className="lg:h-auto rounded-2xl h-52"
-          alt="bgimage"
-        />
-        <div className="rounded-2xl absolute top-1/2 left-1/2 -translate-1/2 flex flex-col gap-2 items-center justify-center text-background lg:py-8 lg:px-12 py-6 ">
-          <h3 className="lg:text-4xl text-2xl ">
+      <div
+        className="rounded-lg lg:mx-20 mx-2 lg:my-12 my-8 bg-background"
+        style={{
+          backgroundImage: "url(/images/backgroundcontact.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex flex-col items-center justify-center text-center gap-4 lg:py-20 py-10 px-4">
+          <h3 className="lg:text-4xl text-xl text-background">
             Let&apos;s build something amazing together
           </h3>
-          <p className="lg:text-sm text-xs text-wrap w-64">
+          <p className="lg:text-sm text-xs text-nowrap text-background">
             Got a project idea? We&apos;d love to hear about it! Book a Call
             with Us
           </p>
-          <div className="flex items-center justify-center my-3">
-            <HoverButton
-              href="/book-a-call"
-              text="Book A Free Call"
-              className="button-primary border-0 hover:bg-transparent rounded-md"
-            />
-          </div>
+
+          <HoverButton
+            href="/book-a-call"
+            text="Book a free call"
+            className="button-primary"
+          />
         </div>
       </div>
     </div>

@@ -140,7 +140,7 @@ const Navbar = () => {
               <div className="flex flex-col justify-normal items-start pt-6">
                 {/* Services toggle */}
                 <div
-                  className={`flex items-center gap-1 cursor-pointer ${
+                  className={`flex items-center justify-between lg:justify-normal gap-1 cursor-pointer ${
                     isServicesActive ? "text-primary" : ""
                   } px-5 pt-7 pb-4 border-b-1 border-b-gray w-full`}
                   onClick={() => setopenServices(!openServices)}

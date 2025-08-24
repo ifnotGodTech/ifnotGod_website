@@ -4,17 +4,20 @@ import HoverButton from "./buttonHover";
 
 const Cardbuild = () => {
   return (
-    <div className="lg:p-12 p-4 bg-background relative text-center w-full">
-      <img
-        src="/images/backgroundcontact.png"
-        className="lg:h-auto rounded-2xl h-42"
-        alt="bgimage"
-      />
-      <div className="rounded-2xl absolute top-1/2 left-1/2 -translate-1/2 flex flex-col gap-2 items-center justify-center text-background p-8 w-full">
-        <h3 className="lg:text-4xl text-xl ">
+    <div
+      className="rounded-lg lg:mx-20 mx-2 lg:my-12 my-8 bg-background"
+      style={{
+        backgroundImage: "url(/images/backgroundcontact.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="flex flex-col items-center justify-center text-center gap-4 lg:py-20 py-10 px-4">
+        <h3 className="lg:text-4xl text-xl text-background">
           Let&apos;s build something amazing together
         </h3>
-        <p className="lg:text-sm text-xs">
+        <p className="lg:text-sm text-xs text-nowrap text-background">
           Got a project idea? We&apos;d love to hear about it! Book a Call with
           Us
         </p>

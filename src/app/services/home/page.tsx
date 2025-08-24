@@ -70,11 +70,11 @@ const Homepage = () => {
     <div className="">
       <HeroSection />
       <Calendly />
-      <div className="bg-foreground mt-12">
+      <div className=" mt-12">
         <Marquee />
 
         {/* <----------------------------------------IDEAS PORTFOLIO SECTION-------------------------------------------------> */}
-        <div className="p-6 lg:px-24 lg:py-12 ">
+        <div className="p-6 lg:px-24 lg:py-12 bg-foreground">
           <div className="text-background flex lg:flex-row flex-col justify-between  w-full lg:items-center gap-6 lg:gap-32">
             <h2 className="lg:text-4xl text-2xl font-instrument-serif lg:w-[700px]">
               Turn your ideas into impactful digital experiences like these
@@ -243,7 +243,7 @@ const Homepage = () => {
                   rotate: [0, -5, 5, -4, 4, -2, 2, 0],
                   transition: { duration: 1, ease: "easeInOut" },
                 }}
-                className="flex flex-col gap-3 bg-off-black border-background border-[0.5px] p-3 rounded-lg lg:min-h-[200px] lg:min-w-[500px] max-w-[500px]"
+                className="flex flex-col gap-3 bg-off-black border-background border-[0.5px] p-3 rounded-lg lg:min-h-[200px] lg:min-w-[500px] max-w-[500px] min-w-full lg:m-auto"
                 key={item.title}
               >
                 <h3 className="capitalize text-2xl font-instrument-serif">
