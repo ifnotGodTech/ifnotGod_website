@@ -20,7 +20,6 @@ export default function HoverButton({
 }: Props) {
   const controls = useAnimation();
   const [hovering, setHovering] = useState(false);
-  console.log(hovering)
 
   const handleHoverStart = () => {
     setHovering(true);
@@ -56,7 +55,8 @@ export default function HoverButton({
   const shared = (
     <button
       type={type}
-      className={`relative overflow-hidden rounded-lg group border-[1px] hover:border-primary ${
+      // disabled={}
+      className={`relative overflow-hidden rounded-lg group border-[1px] hover:border-primary disabled:bg-gray-500 ${
         className?.includes("button-secondary")
           ? `hover:bg-primary hover:text-white text-primary`
           : `hover:bg-transparent`

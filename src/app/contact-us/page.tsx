@@ -5,18 +5,31 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import HoverButton from "../components/reusuables/buttonHover";
+import axios from "axios";
+import { Loader } from "lucide-react";
+import { Toaster, toast } from "sonner";
 
 type formData = {
   fullname: string;
   companyname: string;
+  countrycode: string;
   phonenumber: string;
   email: string;
-  service: string[];
+  service: string;
   description: string;
 };
+type CountryCode = {
+  name: { common: string };
+  cca2: string;
+  idd: {
+    root?: string;
+    suffixes?: string[];
+  };
+};
+
 const Page = () => {
   const typeContent = [
     "Software Development",
@@ -32,15 +45,18 @@ const Page = () => {
     " $5000 or more",
     "I'm not sure",
   ];
-  const [selectContent, setSelectContent] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [selectContent, setSelectContent] = useState<string>("");
   const [selectBudget, setSelectBudget] = useState("");
   const [error, setError] = useState(false);
+  const [countryCodes, setCountryCodes] = useState<CountryCode[]>([]);
   const [formData, setFormData] = useState<formData>({
     fullname: "",
     companyname: "",
+    countrycode: "",
     phonenumber: "",
     email: "",
-    service: [],
+    service: "",
     description: "",
   });
   const handleChange = (
@@ -50,32 +66,90 @@ const Page = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     const updatedData = {
       ...formData,
       service: selectContent,
       budget: selectBudget,
     };
+    const params = {
+      full_name: formData.fullname,
+      company_name: formData.companyname,
+      country_code: formData.countrycode,
+      mobile_number: formData.phonenumber,
+      email_address: formData.email,
+      service: selectContent,
+      project_description: formData.description,
+      project_budget: selectBudget,
+    };
 
     const formValid =
-      updatedData.fullname ||
-      updatedData.companyname ||
-      updatedData.phonenumber ||
-      updatedData.email ||
-      updatedData.description ||
-      updatedData.service.length > 0 ||
+      updatedData.fullname &&
+      updatedData.companyname &&
+      updatedData.phonenumber &&
+      updatedData.email &&
+      updatedData.description &&
+      updatedData.service.length > 0 &&
       updatedData.budget;
-
-    if (!formValid) {
-      setError(true);
+    try {
+      setLoading(true);
+      setError(false);
+      if (!formValid) {
+        setError(true);
+        toast.error("Please fill in all details!")
+      } else {
+        await axios.post(
+          "https://ifnotgod-website-backend.onrender.com/contact-us/",
+          params
+        );
+        toast.success(
+          "Message sent successfully! We'll get back to you in due time. "
+        );
+      }
+      setFormData({
+        fullname: "",
+        companyname: "",
+        countrycode: "",
+        phonenumber: "",
+        email: "",
+        service: "",
+        description: "",
+      });
+      setSelectContent("");
+      setSelectBudget("");
+    } catch (error: any) {
       console.log(error);
-    } else {
-      console.log(updatedData);
+      toast.error("Sorry, that didn't go. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
+  useEffect(() => {
+    const fetchCodes = async () => {
+      try {
+        const response = await axios.get(
+          "https://restcountries.com/v3.1/all?fields=name,cca2,idd"
+        );
+        const filtered = response.data.filter(
+          (c: any) =>
+            c.idd && c.idd.root && c.idd.suffixes && c.idd.suffixes.length > 0
+        );
+        const sorted = filtered.sort((a: any, b: any) =>
+          a.name.common.localeCompare(b.name.common)
+        );
+
+        setCountryCodes(sorted);
+      } catch (error) {
+        console.error("Error fetching country codes:", error);
+      }
+    };
+    fetchCodes();
+  }, []);
+
   return (
     <div className="w-full">
+      <Toaster position="top-right" richColors/>
       {/* <------------------------HERO SECTION -------------------> */}
       <div className="relative">
         <img
@@ -152,21 +226,42 @@ const Page = () => {
               <p className="text-nowrap">Mobile Number</p>
               <DropdownMenu>
                 <DropdownMenuTrigger className="relative">
-                  {" "}
                   <input
                     className={`${
-                      error && !formData.phonenumber
+                      error && !formData.countrycode
                         ? `border-destructive`
                         : `border-gray`
-                    } border-[1px] rounded-md p-2 placeholder:text-xs  lg:w-[150px] w-[100px]`}
+                    } border-[1px] rounded-md p-2 placeholder:text-xs lg:w-[150px] w-[100px] cursor-pointer`}
                     type="text"
+                    value={formData.countrycode || "Select"}
+                    readOnly
                   />
                   <IoMdArrowDropdown className="absolute top-1/2 right-2 -translate-1/2" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {[...Array(12)].map((_, i) => (
-                    <DropdownMenuItem key={i}>+234</DropdownMenuItem>
-                  ))}
+                  {countryCodes.length > 0 ? (
+                    countryCodes.map((item: any, i: number) => {
+                      const root = item?.idd?.root || "";
+                      const suffix = item?.idd?.suffixes?.[0] || "";
+                      const dialCode = root + suffix;
+
+                      return (
+                        <DropdownMenuItem
+                          key={i}
+                          onClick={() => {
+                            setFormData((prev) => ({
+                              ...prev,
+                              countrycode: dialCode,
+                            }));
+                          }}
+                        >
+                          {dialCode} ({item.name.common})
+                        </DropdownMenuItem>
+                      );
+                    })
+                  ) : (
+                    <DropdownMenuItem>Loading...</DropdownMenuItem>
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -215,7 +310,7 @@ const Page = () => {
                     error && !formData.phonenumber
                       ? `border-destructive`
                       : `border-gray`
-                  } border-[1px] border-gray rounded-md p-2  w-full placeholder:text-xs`}
+                  } border-[1px] border-gray rounded-md p-2  w-full placeholder:text-xs cursor-pointer`}
                   type="text"
                   placeholder="Select"
                   value={selectBudget}
@@ -249,11 +344,7 @@ const Page = () => {
               {typeContent.map((item, idx) => (
                 <p
                   onClick={() => {
-                    setSelectContent((prev) =>
-                      prev.includes(item)
-                        ? prev.filter((i) => i !== item)
-                        : [...prev, item]
-                    );
+                    setSelectContent(item);
                   }}
                   className={`rounded-md py-2 border px-4 w-fit text-sm cursor-pointer ${
                     selectContent.includes(item)
@@ -291,9 +382,12 @@ const Page = () => {
           <div className="flex lg:flex-row flex-col-reverse justify-between items-stretch lg:items-end lg:align-bottom w-full mt-8 lg:mt-4">
             <HoverButton
               href="/contact-us"
-              text="Send Message"
-              className="button-primary mt-5 lg:mt-0 w-fit"
+              text={loading ? "Sending" : "Send Message"}
+              className={`button-primary mt-5 lg:mt-0 w-fit ${
+                loading ? `bg-gray-300 cursor-not-allowed` : ``
+              }`}
               type="submit"
+              icon={loading && <Loader className="animate-spin" />}
             />
 
             <div className="flex flex-col text-sm">
