@@ -10,8 +10,8 @@ const Footer = () => {
       <div className="flex lg:flex-row flex-col lg:justify-between gap-9 lg:gap-0 items-start w-full">
         <div className="flex flex-col gap-8 items-start">
           <img
-            src="/images/MAIN-IFNOTGODTECH-LOGO-bright.png"
-            className="w-24"
+            src="/images/ifnotgodtechlogo_dark.png"
+            className="w-32"
             alt="logo"
           />
           <div className="flex flex-col gap-3">

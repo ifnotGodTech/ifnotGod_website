@@ -93,7 +93,7 @@ const page = () => {
         />
       </div>
       {/* <-------------------SERVICES WE OFFER-------------------------> */}
-      <div className="">
+      <div className="bg-[#FAFAFA]">
         <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4  lg:py-12 py-6 lg:px-12 px-3">
           <h1 className="text-4xl font-instrument-serif capitalize">
             Services We Offer
@@ -105,11 +105,11 @@ const page = () => {
             icon={<CgArrowRight />}
           />
         </div>
-        <div className=" lg:py-12 py-6 grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6 border-t-1 border-t-gray ">
+        <div className=" lg:py-12 py-6 grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6 border-t-1 border-t-transparent">
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="sticky  bg-white top-0 z-30 flex lg:flex-row flex-col justify-center items-center w-full gap-12 h-[200px]"
+              className="sticky bg-[#FAFAFA] top-0 z-30 flex lg:flex-row flex-col justify-center items-center w-full gap-12 h-[200px]"
               key={idx}
             >
               <div
@@ -132,10 +132,10 @@ const page = () => {
         <h2 className="text-4xl pb-12 text-center">
           Benefits of using our Quality Assurance service
         </h2>
-        <div className="flex lg:flex-row flex-col justify-center items-start lg:gap-32 gap-6">
+        <div className="flex lg:flex-row flex-col justify-center items-start lg:gap-12 gap-6">
           <img
-            className="lg:w-[500px] w-full h-[400px] object-cover rounded-2xl"
-            src="/images/Joyful Person with OK Gesture.jpeg"
+            className="lg:w-[800px] w-full lg:h-[450px] h-[400px] object-cover rounded-2xl"
+            src="/images/Smiling Young Man in Hoodie.jpeg"
             alt="girl smiling"
           />
           <div className="flex flex-col gap-3">

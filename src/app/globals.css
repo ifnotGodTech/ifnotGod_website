@@ -90,9 +90,19 @@
 .font-instrument-serif {
   font-family: var(--font-instrument-serif), serif;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 @layer components {
   .button-primary {
-    @apply bg-primary py-3 rounded-md text-background px-4 capitalize cursor-pointer lg:text-sm text-xs hover:text-primary  hover:border-primary border-transparent;
+    @apply bg-primary py-3 rounded-md text-background px-4 capitalize cursor-pointer lg:text-sm text-xs hover:text-primary  hover:border-primary border-transparent disabled:bg-none;
   }
   .button-secondary {
     @apply border-1 border-primary py-3 rounded-md text-primary px-4  capitalize cursor-pointer lg:text-sm text-xs hover:bg-primary hover:text-primary bg-transparent;

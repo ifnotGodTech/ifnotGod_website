@@ -90,7 +90,7 @@ const Testimony = () => {
       >
         {testimonycontent.map((item, index) => (
           <div
-            className="bg-background rounded-2xl lg:shadow-2xl shadow-lg p-4 lg:w-full min-w-[300px] lg:min-w-[500px] snap-center"
+            className="bg-background rounded-2xl lg:shadow-md shadow-sm p-4 lg:w-full min-w-[300px] lg:min-w-[500px] snap-center"
             key={index}
           >
             <div className="flex justify-normal items-center gap-4">
@@ -106,8 +106,8 @@ const Testimony = () => {
         ))}
       </div>
       <div className="hidden lg:flex justify-center items-center gap-4 pt-5">
-        <GrFormPrevious
-          className="w-12 h-12 rounded-full border-2 border-black cursor-pointer"
+        <GrFormPrevious stroke="#d1d5dc"
+          className="w-12 h-12 rounded-full border-2 border-gray-300 cursor-pointer"
           onClick={prev}
         />
         <div className="flex gap-2">

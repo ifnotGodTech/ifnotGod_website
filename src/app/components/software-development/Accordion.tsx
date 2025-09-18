@@ -34,7 +34,7 @@ const AccordionSection = () => {
     },
   ];
   return (
-    <div className="bg-off-white lg:px-24 px-6 flex lg:flex-row flex-col items-start justify-between w-full lg:py-24 py-12 lg:gap-24 gap-8">
+    <div className="bg-off-white lg:px-12 px-6 flex lg:flex-row flex-col items-start justify-between w-full lg:py-24 py-12  gap-8">
       <h1 className="lg:text-5xl text-3xl font-instrument-serif w-full lg:w-auto">
         Frequently Asked Questions
       </h1>

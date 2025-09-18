@@ -14,10 +14,10 @@ const Cardbuild = () => {
       }}
     >
       <div className="flex flex-col items-center justify-center text-center gap-4 lg:py-20 py-10 px-4">
-        <h3 className="lg:text-4xl text-xl text-background">
+        <h3 className="lg:text-4xl text-2xl text-background">
           Let&apos;s build something amazing together
         </h3>
-        <p className="lg:text-sm text-xs text-nowrap text-background">
+        <p className="lg:text-sm text-xs lg:text-nowrap text-wrap text-background">
           Got a project idea? We&apos;d love to hear about it! Book a Call with
           Us
         </p>

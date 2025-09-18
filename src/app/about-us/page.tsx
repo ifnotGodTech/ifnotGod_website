@@ -37,7 +37,7 @@ const page = () => {
     {
       img: "/images/teamphotos/Adu Oreoluwa_UI_UX Designer.jpg",
       name: "Adu Oreoluwa",
-      role: "Lead Product Designer",
+      role: "UI/UX Designer",
     },
     {
       img: "/images/teamphotos/Oyindamola Abolarin_QA Tester.jpg",
@@ -50,7 +50,7 @@ const page = () => {
       role: "Lead Frontend Engineer",
     },
     {
-      img: "/images/teamphotos/Okereke Faith_Software developer.jpg",
+      img: "/images/teamphotos/Okereke Faith_Software developer.JPG",
       name: "Okereke Faith",
       role: "Frontend Engineer",
     },

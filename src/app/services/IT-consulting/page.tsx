@@ -83,7 +83,7 @@ const page = () => {
         />
       </div>
       {/* <-------------------SERVICES WE OFFER-------------------------> */}
-      <div className=" ">
+      <div className="bg-[#FAFAFA] ">
         <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full pb-4 lg:py-12 py-6 lg:px-12 px-3">
           <h1 className="text-4xl font-instrument-serif capitalize">
             Services We Offer
@@ -95,11 +95,11 @@ const page = () => {
             icon={<CgArrowRight />}
           />
         </div>
-        <div className=" border-t-1 border-t-gray grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6">
+        <div className=" border-t-1 border-t-transparent grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6">
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="sticky top-0 z-30 bg-white flex lg:flex-row flex-col justify-center items-center w-full gap-12 lg:py-6 py-3"
+              className="sticky top-0 z-30 bg-[#FAFAFA] flex lg:flex-row flex-col justify-center items-center w-full gap-12 lg:py-6 py-3"
               key={idx}
             >
               <div
@@ -121,10 +121,10 @@ const page = () => {
         <h2 className="text-4xl pb-12 text-center">
           Benefits of using our IT Consulting service
         </h2>
-        <div className="flex lg:flex-row flex-col justify-center items-start lg:gap-32 gap-6">
+        <div className="flex lg:flex-row flex-col justify-center items-start lg:gap-12 gap-6">
           <img
-            className="lg:w-[500px] w-full h-[400px] object-cover rounded-2xl"
-            src="/images/Ifnotgodtech website images/Smiling Young Man in Hoodie.jpeg"
+            className="lg:w-[700px] w-full h-[400px] object-cover rounded-2xl"
+            src="/images/manwithtwothumsup.png"
             alt="girl smiling"
           />
           <div className="flex flex-col gap-3">

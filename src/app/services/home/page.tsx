@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
 import HeroSection from "../../components/home/HeroSection";
-import Marquee from "../../components/home/Marquee";
 import { CgArrowRight } from "react-icons/cg";
 import Testimony from "../../components/home/Testimony";
 import Accordion from "../../components/home/Accordion";
 import Cardbuild from "@/app/components/reusuables/cardbuild";
 import HoverButton from "@/app/components/reusuables/buttonHover";
 import { motion } from "framer-motion";
-import Calendly from "../../components/reusuables/Calendly/Calendly";
 
 const Homepage = () => {
   const servicescontent = [
@@ -69,12 +67,9 @@ const Homepage = () => {
   return (
     <div className="">
       <HeroSection />
-      <Calendly />
       <div className=" mt-12">
-        <Marquee />
-
         {/* <----------------------------------------IDEAS PORTFOLIO SECTION-------------------------------------------------> */}
-        <div className="p-6 lg:px-24 lg:py-12 bg-foreground">
+        <div className="p-6 lg:px-12 lg:py-12 bg-foreground">
           <div className="text-background flex lg:flex-row flex-col justify-between  w-full lg:items-center gap-6 lg:gap-32">
             <h2 className="lg:text-4xl text-2xl font-instrument-serif lg:w-[700px]">
               Turn your ideas into impactful digital experiences like these
@@ -86,105 +81,108 @@ const Homepage = () => {
               className="button-primary border-transparent hover:border-transparent hover:bg-foreground"
             />
           </div>
-          <div className="flex lg:flex-row flex-col justify-center lg:gap-5 lg:items-start  lg:px-0">
-            <div className="pt-8">
-              <motion.div
-                className="bg-background rounded-xl p-3 lg:w-[400px] h-[250px] w-full text-white relative overflow-hidden"
-                whileHover="hover"
-                initial="rest"
-                animate="rest"
-              >
-                {/* Image */}
-                <motion.img
-                  variants={{
-                    rest: { scale: 1 },
-                    hover: { scale: 1.1 },
-                  }}
-                  transition={{ duration: 0.4, type: "spring" }}
-                  src="/images/itestify-app.png"
-                  className="lg:w-72 w-64 m-auto"
-                  alt="Project Preview"
-                />
-
-                {/* Arrow Icon */}
+          <div className="lg:py-12">
+            <div className="grid lg:grid-cols-2 gap-6 w-full">
+              <div className="pt-8">
                 <motion.div
-                  variants={{
-                    rest: { opacity: 0, y: -40, scale: 0 },
-                    hover: { opacity: 1, y: 0, scale: 1.2 },
-                  }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="w-8 h-8 bg-primary rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer z-10"
+                  className="bg-gradient-to-b from-[#9F09BD] to-[#F2AEFF] rounded-xl p-3 lg:w-full max-h-[350px] min-h-[350px] w-full text-white relative overflow-hidden"
+                  whileHover="hover"
+                  initial="rest"
+                  animate="rest"
                 >
-                  <CgArrowRight className="text-white" />
+                  {/* Image */}
+                  <motion.img
+                    variants={{
+                      rest: { scale: 1 },
+                      hover: { scale: 1.1 },
+                    }}
+                    transition={{ duration: 0.4, type: "spring" }}
+                    src="/images/itestify-app.png"
+                   className="lg:w-96 w-64 m-auto mt-12"
+                    alt="Project Preview"
+                  />
+
+                  {/* Arrow Icon */}
+                  <motion.div
+                    variants={{
+                      rest: { opacity: 0, y: -40, scale: 0 },
+                      hover: { opacity: 1, y: 0, scale: 1.2 },
+                    }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="w-8 h-8 bg-primary rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer z-10"
+                  >
+                    <CgArrowRight className="text-white" />
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-              <div className="text-background">
-                <h3 className="font-instrument-serif text-xl py-3">
-                  iTestified
-                </h3>
-                <p className="lg:w-[450px] w-full text-sm">
-                  {" "}
-                  A faith-based platform where Christians share testimonies to
-                  encourage fellow believers. We handled the complete design and
-                  development.
-                </p>
-                <div className="flex items-center gap-3 pt-6">
-                  <button className="rounded-xl p-2 border-2 border-background">
-                    Design
-                  </button>
-                  <button className="rounded-xl p-2 border-2 border-background">
-                    Development
-                  </button>
+                <div className="text-background">
+                  <h3 className="font-instrument-serif text-xl py-3">
+                    iTestified
+                  </h3>
+                  <p className="lg:w-[inherit] w-full text-sm">
+                    {" "}
+                    A faith-based platform where Christians share testimonies to
+                    encourage fellow believers. We handled the complete design
+                    and development.
+                  </p>
+                  <div className="flex items-center gap-3 pt-6">
+                    <button className="rounded-xl p-2 border-2 border-gray">
+                      Design
+                    </button>
+                    <button className="rounded-xl p-2 border-2 border-gray">
+                      Development
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="pt-8">
-              <motion.div
-                className="bg-[#002F61] rounded-xl p-3 lg:w-[400px] h-[250px] w-full text-white relative overflow-hidden"
-                whileHover="hover"
-                initial="rest"
-                animate="rest"
-              >
-                {/* Image */}
-                <motion.img
-                  variants={{
-                    rest: { scale: 1 },
-                    hover: { scale: 1.1 },
-                  }}
-                  transition={{ duration: 0.4, type: "spring" }}
-                  src="/images/travelmate_portfolio.png"
-                  className="lg:w-72 w-64 m-auto"
-                  alt="Project Preview"
-                />
-
-                {/* Arrow Icon */}
+              <div className="pt-8">
                 <motion.div
-                  variants={{
-                    rest: { opacity: 0, y: -40, scale: 0 },
-                    hover: { opacity: 1, y: 0, scale: 1.2 },
-                  }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="w-8 h-8 bg-primary rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer z-10"
+                  className="bg-[#002F61] rounded-xl p-3 lg:w-full min-h-[250px] max-h-[250px] lg:max-h-[350px] lg:min-h-[350px] w-full text-white relative overflow-hidden"
+                  whileHover="hover"
+                  initial="rest"
+                  animate="rest"
                 >
-                  <CgArrowRight className="text-white" />
+                  {/* Image */}
+                  <motion.img
+                    variants={{
+                      rest: { scale: 1 },
+                      hover: { scale: 1.1 },
+                    }}
+                    transition={{ duration: 0.4, type: "spring" }}
+                    src="/images/travelmate_portfolio.png"
+                    className="lg:w-96 w-64 m-auto mt-12"
+                    alt="Project Preview"
+                  />
+
+                  {/* Arrow Icon */}
+                  <motion.div
+                    variants={{
+                      rest: { opacity: 0, y: -40, scale: 0 },
+                      hover: { opacity: 1, y: 0, scale: 1.2 },
+                    }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="w-8 h-8 bg-primary rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer z-10"
+                  >
+                    <CgArrowRight className="text-white" />
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-              <div className="text-background">
-                <h3 className="font-instrument-serif text-xl py-3">
-                  TravelMate
-                </h3>
-                <p className="lg:w-[450px] w-full text-sm">
-                  A modern travel platform that lets users search,book flights,
-                  stays and airport taxis in one place. We led the end-to-end
-                  design and development for a seamless booking experience.
-                </p>
-                <div className="flex items-center gap-3 pt-6">
-                  <button className="rounded-xl p-2 border-2 border-background">
-                    Design
-                  </button>
-                  <button className="rounded-xl p-2 border-2 border-background">
-                    Development
-                  </button>
+                <div className="text-background">
+                  <h3 className="font-instrument-serif text-xl py-3">
+                    TravelMate
+                  </h3>
+                  <p className="lg:w-[inherit] w-full text-sm">
+                    A modern travel platform that lets users search,book
+                    flights, stays and airport taxis in one place. We led the
+                    end-to-end design and development for a seamless booking
+                    experience.
+                  </p>
+                  <div className="flex items-center gap-3 pt-6">
+                    <button className="rounded-xl p-2 border-2 border-gray">
+                      Design
+                    </button>
+                    <button className="rounded-xl p-2 border-2 border-gray">
+                      Development
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -217,7 +215,7 @@ const Homepage = () => {
                     <p>{content.content}</p>
                   </div>
                   <img
-                    className={`rounded-xl w-[400px] ${
+                    className={`rounded-xl w-[400px] lg:w-[500px] ${
                       idx % 2 === 0 ? "lg:order-2" : "lg:order-1"
                     }`}
                     src={content.image}
@@ -235,7 +233,7 @@ const Homepage = () => {
           <h1 className="font-instrument-serif text-4xl pb-12">
             Why You Should Choose IFNOTGODTECH
           </h1>
-          <div className="flex lg:flex-row flex-col flex-wrap w-full gap-5  ">
+          <div className="grid lg:grid-cols-2 gap-3 flex-wrap w-full ">
             {whycontent.map((item) => (
               <motion.div
                 animate={{ rotate: 0 }}
@@ -243,7 +241,7 @@ const Homepage = () => {
                   rotate: [0, -5, 5, -4, 4, -2, 2, 0],
                   transition: { duration: 1, ease: "easeInOut" },
                 }}
-                className="flex flex-col gap-3 bg-off-black border-background border-[0.5px] p-3 rounded-lg lg:min-h-[200px] lg:min-w-[500px] max-w-[500px] min-w-full lg:m-auto"
+                className="flex flex-col gap-3 bg-off-black border-background border-[0.5px] p-3 rounded-lg lg:min-h-[200px] min-w-full lg:m-auto lg:mt-4"
                 key={item.title}
               >
                 <h3 className="capitalize text-2xl font-instrument-serif">

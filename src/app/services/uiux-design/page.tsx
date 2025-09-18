@@ -98,7 +98,7 @@ const page = () => {
         />
       </div>
       {/* <-------------------SERVICES WE OFFER-------------------------> */}
-      <div className="">
+      <div className="bg-[#FAFAFA]">
         <div className="flex lg:flex-row flex-col lg:justify-between justify-normal gap-6 lg:gap-0 lg:items-center w-full lg:p-12 py-6 px-3">
           <h1 className="text-4xl font-instrument-serif capitalize  ">
             Services We Offer
@@ -114,7 +114,7 @@ const page = () => {
           {" "}
           {servicescontent.map((content, idx) => (
             <div
-              className="sticky top-0 z-20 bg-white border-b-[1px] p-6 lg:px-12  flex lg:flex-row flex-col justify-center items-center w-full gap-12"
+              className="sticky top-0 z-20 bg-[#FAFAFA] border-b-[1px] p-6 lg:px-12  flex lg:flex-row flex-col justify-center items-center w-full gap-12"
               key={idx}
             >
               <div
@@ -127,7 +127,7 @@ const page = () => {
                 <p>{content.description}</p>
               </div>
               <img
-                className={`rounded-xl w-[400px] ${
+                className={`rounded-xl w-[400px] lg:w-[500px] ${
                   idx % 2 === 0 ? "lg:order-2" : "lg:order-1"
                 }`}
                 src={content.image}
@@ -141,7 +141,7 @@ const page = () => {
       {/* <----------------------BENEFITS OF USING SERVOICE SECTION----------------------> */}
       <div className="bg-off-white p-6 pb-12">
         <h2 className="text-4xl pb-12 text-center">
-          Benefits of using our service
+          Benefits of using our design service
         </h2>
         <div className="flex lg:flex-row flex-col justify-center items-start lg:gap-32 gap-6">
           <img
@@ -152,7 +152,7 @@ const page = () => {
           <div className="flex flex-col gap-3">
             {benefitContent.map((item, idx) => (
               <div
-                className="flex align-top justify-normal items-start gap-2"
+                className="flex align-top justify-normal items-start gap-4"
                 key={idx}
               >
                 <CheckCircle2Icon
@@ -160,7 +160,7 @@ const page = () => {
                   stroke="var(--background)"
                   className="mt-2 min-h-6 min-w-6"
                 />
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col">
                   <h4 className="text-2xl">{item.title}</h4>
                   <p className="text-sm">{item.description}</p>
                 </div>

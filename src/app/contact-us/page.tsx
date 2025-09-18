@@ -28,6 +28,11 @@ type CountryCode = {
     root?: string;
     suffixes?: string[];
   };
+  flags?: {
+    png?: string;
+    svg?: string;
+  };
+  dialCode: string;
 };
 
 const Page = () => {
@@ -46,10 +51,12 @@ const Page = () => {
     "I'm not sure",
   ];
   const [loading, setLoading] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
   const [selectContent, setSelectContent] = useState<string>("");
   const [selectBudget, setSelectBudget] = useState("");
   const [error, setError] = useState(false);
   const [countryCodes, setCountryCodes] = useState<CountryCode[]>([]);
+  const [search, setSearch] = useState("");
   const [formData, setFormData] = useState<formData>({
     fullname: "",
     companyname: "",
@@ -96,7 +103,7 @@ const Page = () => {
       setError(false);
       if (!formValid) {
         setError(true);
-        toast.error("Please fill in all details!")
+        toast.error("Please fill in all details!");
       } else {
         await axios.post(
           "https://ifnotgod-website-backend.onrender.com/contact-us/",
@@ -117,9 +124,10 @@ const Page = () => {
       });
       setSelectContent("");
       setSelectBudget("");
+      setSearch("");
     } catch (error: any) {
       console.log(error);
-      toast.error("Sorry, that didn't go. Please try again.");
+      toast.error(`${error}, Sorry, that didn't go. Please try again.`);
     } finally {
       setLoading(false);
     }
@@ -129,14 +137,18 @@ const Page = () => {
     const fetchCodes = async () => {
       try {
         const response = await axios.get(
-          "https://restcountries.com/v3.1/all?fields=name,cca2,idd"
+          "https://restcountries.com/v3.1/all?fields=name,cca2,idd,flags"
         );
         const filtered = response.data.filter(
           (c: any) =>
             c.idd && c.idd.root && c.idd.suffixes && c.idd.suffixes.length > 0
         );
-        const sorted = filtered.sort((a: any, b: any) =>
-          a.name.common.localeCompare(b.name.common)
+        const mapped = filtered.map((c: any) => ({
+          ...c,
+          dialCode: `${c.idd.root}${c.idd.suffixes[0]}`,
+        }));
+        const sorted = mapped.sort(
+          (a: any, b: any) => parseInt(a.dialCode) - parseInt(b.dialCode)
         );
 
         setCountryCodes(sorted);
@@ -146,10 +158,15 @@ const Page = () => {
     };
     fetchCodes();
   }, []);
+  const filtered = countryCodes.filter(
+    (c) =>
+      c.dialCode.includes(search) ||
+      c.name.common.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="w-full">
-      <Toaster position="top-right" richColors/>
+      <Toaster position="top-right" richColors />
       {/* <------------------------HERO SECTION -------------------> */}
       <div className="relative">
         <img
@@ -224,46 +241,59 @@ const Page = () => {
           <div className="flex gap-2 justify-normal items-end mt-8">
             <div className="flex flex-col gap-2">
               <p className="text-nowrap">Mobile Number</p>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="relative">
+              <div>
+                <div className="relative w-[150px]">
                   <input
                     className={`${
                       error && !formData.countrycode
                         ? `border-destructive`
                         : `border-gray`
-                    } border-[1px] rounded-md p-2 placeholder:text-xs lg:w-[150px] w-[100px] cursor-pointer`}
+                    } border-[1px] rounded-md p-2 placeholder:text-xs w-full `}
                     type="text"
-                    value={formData.countrycode || "Select"}
-                    readOnly
+                    placeholder="Select"
+                    value={formData.countrycode ? formData.countrycode : search}
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                      setFormData((prev) => ({ ...prev, countrycode: search }));
+                    }}
+                    onClick={() => setDropdown(!dropdown)}
                   />
-                  <IoMdArrowDropdown className="absolute top-1/2 right-2 -translate-1/2" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {countryCodes.length > 0 ? (
-                    countryCodes.map((item: any, i: number) => {
-                      const root = item?.idd?.root || "";
-                      const suffix = item?.idd?.suffixes?.[0] || "";
-                      const dialCode = root + suffix;
+                  <IoMdArrowDropdown className="absolute top-1/2 right-2 -translate-y-1/2" />
+                </div>
 
-                      return (
-                        <DropdownMenuItem
-                          key={i}
-                          onClick={() => {
-                            setFormData((prev) => ({
-                              ...prev,
-                              countrycode: dialCode,
-                            }));
-                          }}
-                        >
-                          {dialCode} ({item.name.common})
-                        </DropdownMenuItem>
-                      );
-                    })
-                  ) : (
-                    <DropdownMenuItem>Loading...</DropdownMenuItem>
-                  )}
-                </DropdownMenuContent>
-              </DropdownMenu>
+                {dropdown && (
+                  <div className="max-h-60 overflow-y-auto absolute bg-white scrollbar-hide z-10 w-[150px]">
+                    {filtered.length > 0 ? (
+                      filtered.map((item: CountryCode, i: number) => {
+                        return (
+                          <div
+                            key={i}
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                countrycode: item.dialCode,
+                              }));
+                              setDropdown(false);
+                            }}
+                            className="flex items-center gap-2 p-1 cursor-pointer hover:bg-neutral-100 rounded-lg"
+                          >
+                            {item.flags?.png && (
+                              <img
+                                src={item.flags.png}
+                                alt={item.name.common}
+                                className="w-5 h-4 object-cover rounded-sm"
+                              />
+                            )}
+                            <span>{item.dialCode}</span>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div>No results found</div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
             <input
               className={`${
@@ -406,11 +436,11 @@ const Page = () => {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="flex flex-col items-center justify-center text-center gap-4 lg:py-20 py-10 px-4">
-          <h3 className="lg:text-4xl text-xl text-background">
+        <div className="flex flex-col items-center justify-center text-center gap-4 lg:py-20 py-10 px-6">
+          <h3 className="lg:text-4xl text-2xl text-background">
             Let&apos;s build something amazing together
           </h3>
-          <p className="lg:text-sm text-xs text-nowrap text-background">
+          <p className="lg:text-sm text-xs lg:text-nowrap text-wrap text-background">
             Got a project idea? We&apos;d love to hear about it! Book a Call
             with Us
           </p>

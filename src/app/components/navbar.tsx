@@ -54,7 +54,7 @@ const Navbar = () => {
     <>
       <nav className="relative p-4 bg-background lg:flex justify-between items-center w-full px-12 hidden">
         <img
-          src="/images/MAIN-IFNOTGODTECH-LOGO.png"
+          src="/images/ifnotgodtechlogo.png"
           className="w-24 cursor-pointer select-none"
           alt="logo"
           onClick={() => route.push("/")}
@@ -120,8 +120,8 @@ const Navbar = () => {
       <nav className="block lg:hidden">
         <div className="flex justify-between items-center w-full p-4">
           <img
-            src="/images/MAIN-IFNOTGODTECH-LOGO.png"
-            className="w-24"
+            src="/images/ifnotgodtechlogo.png"
+            className="w-12"
             alt="logo"
             onClick={() => route.push("/")}
           />
