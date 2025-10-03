@@ -6,43 +6,43 @@ const Testimony = () => {
   const testimonycontent = [
     {
       img: "/images/avatarpfp.png",
-      name: "Elvis Igbeibor",
-      role: "HR Google",
-      title: "Ahead of Schedule, Beyond Expectations",
+      name: "Mr. Elvis Igbeibor",
+      role: "Founder, Itestified App",
+      title: "Exceptional Mobile App Development",
       content:
-        "The team exceeded our expectations in every way. From the very first meeting, they showed a deep understanding of our goals and proposed smart, efficient solutions. T It felt like they were an extension of our in-house team.",
+        "Working with this team was incredible. They built our mobile app from the ground up with complete design, development, and testing services. The UI/UX design exceeded our expectations, and their development team was always available for questions",
     },
     {
       img: "/images/avatarpfp.png",
-      name: "Elvis Igbeibor",
-      role: "HR Google",
-      title: "Ahead of Schedule, Beyond Expectations",
+      name: "Mrs. Jolaade Deborah",
+      role: "Principal, DCC School",
+      title: "Outstanding Website Development",
       content:
-        "The team exceeded our expectations in every way. From the very first meeting, they showed a deep understanding of our goals and proposed smart, efficient solutions. T It felt like they were an extension of our in-house team.",
+        "They built our school website from the ground up with incredible attention to detail. The design perfectly captures our school's values and the functionality makes it easy for parents and students to access information. The QA testing ensured a smooth launch and we've had zero issues since going live",
     },
     {
       img: "/images/avatarpfp.png",
-      name: "Elvis Igbeibor",
-      role: "HR Google",
-      title: "Ahead of Schedule, Beyond Expectations",
+      name: "Ms. Lola Adegoke",
+      role: "CEO, TravelMate",
+      title: "Perfect Website Design and Development",
       content:
-        "The team exceeded our expectations in every way. From the very first meeting, they showed a deep understanding of our goals and proposed smart, efficient solutions. T It felt like they were an extension of our in-house team.",
+        "Their comprehensive approach to our travel website was outstanding. They handled the complete design, development, and testing process with incredible attention to detail. Every feature was thoughtfully crafted for our travel business needs The QA testing ensured everything worked perfectly from day one",
     },
     {
       img: "/images/avatarpfp.png",
-      name: "Elvis Igbeibor",
-      role: "HR Google",
-      title: "Ahead of Schedule, Beyond Expectations",
+      name: "Mr. Ayo Ajibade",
+      role: "Managing Director, AJ Technologies",
+      title: "Reliable Web Development Partner",
       content:
-        "The team exceeded our expectations in every way. From the very first meeting, they showed a deep understanding of our goals and proposed smart, efficient solutions. T It felt like they were an extension of our in-house team.",
+        "As a growing business, we needed a web development partner who could deliver quality within our timeline. They were transparent from day one, delivered exactly what they promised, and the post-launch support has been fantastic. Our web platform has been stable with zero critical issues for 6 months now.",
     },
     {
       img: "/images/avatarpfp.png",
-      name: "Elvis Igbeibor",
-      role: "HR Google",
+      name: "Mrs. Folake Ogundimu ",
+      role: "Operations Manager, TechSolutions Nigeria",
       title: "Ahead of Schedule, Beyond Expectations",
       content:
-        "The team exceeded our expectations in every way. From the very first meeting, they showed a deep understanding of our goals and proposed smart, efficient solutions. T It felt like they were an extension of our in-house team.",
+        "The QA testing services were thorough and professional. They found critical bugs that our internal team missed and provided detailed reports that made fixing issues straightforward. Their integration into our development workflow was seamless - it felt like they were part of our team.",
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);

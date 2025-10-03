@@ -105,11 +105,10 @@ const page = () => {
             icon={<CgArrowRight />}
           />
         </div>
-        <div className=" lg:py-12 py-6 grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6 border-t-1 border-t-transparent">
-          {" "}
+        <div className="sticky bg-[#FAFAFA] top-0 z-30 lg:py-12 py-6 grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6 border-t-1">
           {servicescontent.map((content, idx) => (
             <div
-              className="sticky bg-[#FAFAFA] top-0 z-30 flex lg:flex-row flex-col justify-center items-center w-full gap-12 h-[200px]"
+              className="flex lg:flex-row flex-col justify-center items-center w-full gap-12 h-[200px]"
               key={idx}
             >
               <div

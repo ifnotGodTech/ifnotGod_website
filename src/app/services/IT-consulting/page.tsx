@@ -95,25 +95,27 @@ const page = () => {
             icon={<CgArrowRight />}
           />
         </div>
-        <div className=" border-t-1 border-t-transparent grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6">
-          {" "}
-          {servicescontent.map((content, idx) => (
-            <div
-              className="sticky top-0 z-30 bg-[#FAFAFA] flex lg:flex-row flex-col justify-center items-center w-full gap-12 lg:py-6 py-3"
-              key={idx}
-            >
+        <div className=" h-auto">
+          <div className="border-t-1  grid lg:grid-cols-2 grid-cols-1 items-center gap-8 lg:px-12 px-6 sticky top-0 z-30 bg-[#FAFAFA]">
+            {" "}
+            {servicescontent.map((content, idx) => (
               <div
-                className={`flex flex-col gap-4 items-start justify-normal
-        ${idx % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}
+                className="flex lg:flex-row flex-col justify-center items-center w-full gap-12 lg:py-6 py-3"
+                key={idx}
               >
-                <img src="/icons/offericon.png" className="w-6 h-6" />
-                <h2 className="font-instrument-serif text-3xl">
-                  {content.title}
-                </h2>
-                <p>{content.description}</p>
+                <div
+                  className={`flex flex-col gap-4 items-start justify-normal
+        ${idx % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}
+                >
+                  <img src="/icons/offericon.png" className="w-6 h-6" />
+                  <h2 className="font-instrument-serif text-3xl">
+                    {content.title}
+                  </h2>
+                  <p>{content.description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       {/* <----------------------BENEFITS OF USING SERVOICE SECTION----------------------> */}

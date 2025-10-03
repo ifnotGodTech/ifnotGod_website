@@ -12,25 +12,25 @@ const AccordionSection = () => {
       id: "1",
       question: "How do we know if we actually need IT consulting?",
       answer:
-        "If you're struggling with technology decisions, experiencing frequent IT issues, or planning major changes, consulting can save you time and money.",
+        "You might benefit from IT consulting if you're experiencing technology challenges that are impacting your business operations, planning major system upgrades, considering digital transformation, or need expert guidance on technology strategy. Common signs include outdated systems, security concerns, inefficient processes, or when your team lacks specific technical expertise for a project. We can help assess your situation during an initial consultation to determine if consulting services would be valuable for your business.",
     },
     {
       id: "2",
       question: "How long does IT consulting typically take?",
       answer:
-        "We test on both real devices and simulators to ensure comprehensive coverage. Real device testing catches issues that simulators often miss.",
+        "Consulting project duration varies widely based on scope and complexity. Some assessments might take just a few weeks, while comprehensive digital transformation strategies could span several months. The timeline depends on factors like the size of your organization, number of systems involved, and depth of analysis required. We'll provide a detailed project timeline after understanding your specific needs and objectives.",
     },
     {
       id: "3",
       question: "How do you charge for consulting services?",
       answer:
-        "We test on both real devices and simulators to ensure comprehensive coverage. Real device testing catches issues that simulators often miss.",
+        "Our consulting fees are structured based on project scope, complexity, and duration. We offer flexible pricing models to fit different business needs and budgets. To provide accurate pricing for your specific consulting requirements, please book a consultation call or contact us through our contact form, and we'll discuss the most suitable arrangement for your project.",
     },
     {
       id: "4",
       question: "What happens after the consulting project ends?",
       answer:
-        "We test on both real devices and simulators to ensure comprehensive coverage. Real device testing catches issues that simulators often miss.",
+        "After completing your consulting project, we provide comprehensive documentation including our findings, recommendations, and implementation roadmaps. We can also offer ongoing support through various arrangements - whether that's periodic check-ins, implementation assistance, or being available for questions as you execute our recommendations. We'll discuss post-project support options that make sense for your situation during our initial consultation.",
     },
   ];
   return (
@@ -52,7 +52,9 @@ const AccordionSection = () => {
               key={item.question}
             >
               <AccordionTrigger className="font-instrument-serif text-xl cursor-pointer">
-                <p className="text-left text-2xl font-instrument-serif">{item.question}</p>
+                <p className="text-left text-2xl font-instrument-serif">
+                  {item.question}
+                </p>
               </AccordionTrigger>
               <AccordionContent className="text-sm lg:text-base data-[state:open]:slidedown text-gray pt-3">
                 {item.answer}

@@ -12,31 +12,31 @@ const AccordionSection = () => {
       id: "1",
       question: "How long does a UI/UX project typically take?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "Design project timelines vary based on the scope and complexity of your project. We'll provide a detailed timeline tailored to your specific project during our initial consultation.",
     },
     {
       id: "2",
       question: "Why is UI/UX design important for my business?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "Good UI/UX design directly impacts your bottom line. It increases user engagement, reduces bounce rates, and improves conversion rates. A well-designed interface makes it easier for customers to find what they need and complete desired actions, whether that's making a purchase, signing up, or contacting you. Poor design can frustrate users and drive them to competitors, while great design builds trust and encourages repeat business.",
     },
     {
       id: "3",
       question: "How much does a UI/UX design project cost?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "Design project costs depend on various factors including project scope, complexity, number of screens, and research requirements. Every project has unique needs, so we provide customized quotes after understanding your goals and requirements. To get accurate pricing for your design project, please book a consultation call or reach out through our contact form for a detailed proposal.",
     },
     {
       id: "4",
       question: "Can you work with our existing design team?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "Absolutely! We're experienced in collaborating with in-house design teams and can adapt to various working arrangements. We can work as an extension of your team, provide specialized expertise for specific projects, or offer design consultation and review services. We'll discuss the best collaboration approach during our initial consultation to ensure smooth integration with your existing processes",
     },
     {
       id: "5",
       question: "What industries do you specialize in?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "We work across diverse industries including fintech, healthcare, e-commerce, SaaS, education, and startups. Our design approach focuses on understanding your users and business goals rather than being limited to specific sectors. Each industry has unique challenges and user expectations, and we research and adapt our design solutions to meet those specific needs.",
     },
   ];
   return (

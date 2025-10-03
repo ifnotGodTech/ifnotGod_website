@@ -18,25 +18,19 @@ const AccordionSection = () => {
       id: "2",
       question: "Do you work with startups or only established businesses?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "We work with both startups and established businesses! We understand that startups have unique needs - tight budgets, rapid iteration requirements, and the need to validate ideas quickly. Whether you're a solo founder with an idea or an enterprise looking to modernise, we tailor our approach to fit your stage and requirements.",
     },
     {
       id: "3",
       question: "How involved will I be in the development process?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "Your involvement is crucial to project success. We follow a collaborative approach with regular check-ins, sprint reviews, and feedback sessions. We typically schedule calls during development or anytime that fits your needs. The level of involvement is flexible and can be adjusted based on your availability and preferences.",
     },
     {
       id: "4",
       question: "How much does it cost to hire your software Agency?",
       answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
-    },
-    {
-      id: "5",
-      question: "How do you handle working in different time zones?",
-      answer:
-        "Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while a complex web application could take 2-4 months. We'll provide a detailed timeline during our initial consultation.",
+        "Project costs vary significantly based on complexity, features, and timeline requirements. Every project is unique, so we provide customized quotes after understanding your specific needs and goals. To get accurate pricing for your project, please book a consultation call or reach out through our contact form, and we'll provide a detailed proposal tailored to your requirements.",
     },
   ];
   return (
